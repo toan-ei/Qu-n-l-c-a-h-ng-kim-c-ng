@@ -1,0 +1,200 @@
+<html lang="vi">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Quản lý bán kim cương trực tuyến</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        background-color: #444;
+      }
+      nav a {
+        color: #fff;
+        padding: 14px 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      nav a:hover {
+        background-color: #555;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .products, .collections, .pricing, .warranty, .promotions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .product, .collection, .price-item, .warranty-item, .promotion-item {
+        flex: 1 1 30%;
+        margin: 10px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        text-align: center;
+      }
+      .product img, .collection img, .price-item img, .warranty-item img, .promotion-item img {
+        max-width: 100%;
+        height: auto;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Cửa hàng kim cương trực tuyến</h1>
+    </header>
+    <nav>
+      <a href="#home">Trang chủ</a>
+      <a href="#products">Sản phẩm</a>
+      <a href="#collections">Bộ sưu tập</a>
+      <a href="#pricing">Bảng giá</a>
+      <a href="#warranty">Quản lý bảo hành</a>
+      <a href="#promotions">Khuyến mãi và tích điểm</a>
+      <a href="#knowledge">Kiến thức kim cương</a>
+      <a href="#faq">Câu hỏi thường gặp</a>
+    </nav>
+
+    <!-- Trang chủ -->
+    <div class="container" id="home">
+      <h2 class="section-title">Giới thiệu cửa hàng</h2>
+      <p>
+        Chào mừng bạn đến với cửa hàng kim cương trực tuyến của chúng tôi. Chúng tôi cung cấp các sản phẩm kim cương chất lượng cao, đa dạng về mẫu mã và giá cả hợp lý.
+      </p>
+    </div>
+
+    <!-- Sản phẩm -->
+    <div class="container" id="products">
+      <h2 class="section-title">Sản phẩm</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://azamiluxury.com/wp-content/uploads/2018/04/1.55-carat-round-brilliant-cut-diamond-e-color-si1-loose.jpg" alt="Kim cương tròn" width="300" height="300"/>
+          <h3>Kim cương tròn</h3>
+          <p>Giá: 50,000,000 VND</p>
+        </div>
+        <div class="product">
+          <img src="https://file.hstatic.net/200000355853/file/kim-cuong-vuong-gia-bao-nhieu-400x400.jpg" alt="Kim cương vuông" width="300" height="300"/>
+          <h3>Kim cương vuông</h3>
+          <p>Giá: 60,000,000 VND</p>
+        </div>
+        <div class="product">
+          <img src="https://phunuvietnam.mediacdn.vn/media/news/16c7c03892aacbd08cd6c1cee3aba5fd/kim-cuong.jpg" alt="Kim cương trái tim" width="300" height="300"/>
+          <h3>Kim cương trái tim</h3>
+          <p>Giá: 70,000,000 VND</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bộ sưu tập -->
+    <div class="container" id="collections">
+      <h2 class="section-title">Bộ sưu tập</h2>
+      <div class="collections">
+        <div class="collection">
+          <img src="https://banner2.cleanpng.com/20180308/qeq/av1yn04hh.webp" alt="Bộ sưu tập nhẫn" width="300" height="300"/>
+          <h3>Bộ sưu tập nhẫn</h3>
+        </div>
+        <div class="collection">
+          <img src="https://lh6.googleusercontent.com/proxy/Qulb0pU5daAhkmcAHp98yAIOMWmBUKilipvOkGxjn-ZpsZPonGxA-NPDjMXFxg3mJTOS_h_QTx4yTiTsjoLXb1TJH94QYEFE5Uc5yWNMQTM" alt="Bộ sưu tập vòng cổ" width="300" height="300"/>
+          <h3>Bộ sưu tập vòng cổ</h3>
+        </div>
+        <div class="collection">
+          <img src="https://file.hstatic.net/200000355853/collection/bong-tai-kim-cuong-tu-nhien-qq4mgmpaqjy48hcpoo7337qzhz8cify49svp07fsz4_3f4bd55d177a4300bffe26ed5b255299.jpg" alt="Bộ sưu tập bông tai" width="300" height="300"/>
+          <h3>Bộ sưu tập bông tai</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bảng giá -->
+    <div class="container" id="pricing">
+      <h2 class="section-title">Bảng giá</h2>
+      <div class="pricing">
+        <div class="price-item">
+          <img src="https://azamiluxury.com/wp-content/uploads/2018/04/1.55-carat-round-brilliant-cut-diamond-e-color-si1-loose.jpg" alt="Kim cương tròn" width="300" height="300"/>
+          <h3>Kim cương tròn</h3>
+          <p>Giá: 50,000,000 VND</p>
+        </div>
+        <div class="price-item">
+          <img src="https://file.hstatic.net/200000355853/file/kim-cuong-vuong-gia-bao-nhieu-400x400.jpg" alt="Kim cương vuông" width="300" height="300"/>
+          <h3>Kim cương vuông</h3>
+          <p>Giá: 60,000,000 VND</p>
+        </div>
+        <div class="price-item">
+          <img src="https://phunuvietnam.mediacdn.vn/media/news/16c7c03892aacbd08cd6c1cee3aba5fd/kim-cuong.jpg" alt="Kim cương trái tim" width="300" height="300"/>
+          <h3>Kim cương trái tim</h3>
+          <p>Giá: 70,000,000 VND</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quản lý bảo hành -->
+    <div class="container" id="warranty">
+      <h2 class="section-title">Quản lý bảo hành</h2>
+      <div class="warranty">
+        <div class="warranty-item">
+          <h3>Phiếu bảo hành kim cương</h3>
+          <p>Thông tin chi tiết về bảo hành sản phẩm.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Khuyến mãi và tích điểm -->
+    <div class="container" id="promotions">
+      <h2 class="section-title">Khuyến mãi và tích điểm</h2>
+      <div class="promotions">
+        <div class="promotion-item">
+          <h3>Khuyến mãi tháng 12</h3>
+          <p>Giảm giá 10% cho tất cả sản phẩm kim cương.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kiến thức kim cương -->
+    <div class="container" id="knowledge">
+      <h2 class="section-title">Kiến thức kim cương</h2>
+      <p>
+        Hướng dẫn chọn kim cương phù hợp với nhu cầu và sở thích của bạn, tìm hiểu về các yếu tố ảnh hưởng đến giá trị của kim cương như màu sắc, độ tinh khiết và cắt mài.
+      </p>
+    </div>
+
+    <!-- Câu hỏi thường gặp -->
+    <div class="container" id="faq">
+      <h2 class="section-title">Câu hỏi thường gặp</h2>
+      <p>Giải đáp các câu hỏi phổ biến về việc chọn lựa và mua kim cương.</p>
+    </div>
+
+    <footer>
+      <p>© 2024 Cửa hàng kim cương trực tuyến. Tất cả các quyền được bảo lưu.</p>
+    </footer>
+  </body>
+</html>
