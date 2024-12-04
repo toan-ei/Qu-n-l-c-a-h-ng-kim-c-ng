@@ -1,90 +1,171 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!--CSS-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link href="{%static 'app/css/style.css'%}" rel="stylesheet" >
-        <link href="{%static 'app/css/owl.carousel.min.css'%}" rel="stylesheet" >
-        <link href="{%static 'app/css/all.min.css'%}" rel="stylesheet" >
-        <link href="{%static 'app/css/main.css'%}" rel="stylesheet" >
-        <!--JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-        <script src="{%static 'app/js/owl.carousel.min.js'%}"> </script>
-        <script src="{%static 'app/js/all.min.js'%}"> </script>
-        <script src="{%static 'app/js/myscript.js'%}"> </script>
-        <title>{% block title %}{% endblock %}</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--header-->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                <img src="" width= "50" height="50" />
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Trang Chủ</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Sản Phẩm
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Bộ Siêu Tập</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="banggiakimcuong">Bảng Giá Kim Cương</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    UserName
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Trang cá nhân</a></li>
-                    <li><a class="dropdown-item" href="#">Đơn Hàng</a></li>
-                    <li><a class="dropdown-item" href="#">Thoát</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Đăng Nhập</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Đăng Kí</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        <!--trang chủ-->
-        {% block home %}{% endblock  %}
-        {% block BoSieuTap %}{% endblock  %}
-        {% block GiaKimCuong %}{% endblock GiaKimCuong %}
-        {% block login %}{% endblock  %}
-        <script src="" async defer></script>
-    </body>
+<html lang="vi">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Phần mềm quản lý bán kim cương trực tuyến
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="font-roboto bg-gray-100">
+  <!-- Header -->
+  <nav class="bg-white shadow-md">
+   <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+    <a class="flex items-center text-xl font-bold text-gray-800" href="#">
+     <img alt="Logo của cửa hàng kim cương" class="inline-block mr-2" height="50" src="https://storage.googleapis.com/a1aa/image/uYb4d6Kbz4Y7KRtbboqpMNlhDcjvn73OytN13Lhkg73edu7JA.jpg" width="50"/>
+     <span>
+      Cửa Hàng Kim Cương
+     </span>
+    </a>
+    <button class="block lg:hidden text-gray-800 focus:outline-none">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <div class="hidden lg:flex lg:items-center lg:space-x-4">
+     <a class="text-gray-800 hover:text-gray-600" href="#">
+      Trang Chủ
+     </a>
+     <div class="relative group">
+      <a class="text-gray-800 hover:text-gray-600" href="#">
+       Sản Phẩm
+      </a>
+      <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md">
+       <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
+        Action
+       </a>
+       <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
+        Another action
+       </a>
+       <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
+        Something else here
+       </a>
+      </div>
+     </div>
+     <a class="text-gray-800 hover:text-gray-600" href="#">
+      Bộ Sưu Tập
+     </a>
+     <a class="text-gray-800 hover:text-gray-600" href="banggiakimcuong">
+      Bảng Giá Kim Cương
+     </a>
+    </div>
+    <div class="hidden lg:flex lg:items-center lg:space-x-4">
+     <form class="flex items-center">
+      <input class="form-input px-4 py-2 rounded-md border border-gray-300" placeholder="Search" type="text"/>
+      <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md" type="submit">
+       Search
+      </button>
+     </form>
+     <div class="relative group">
+      <a class="text-gray-800 hover:text-gray-600" href="#">
+       UserName
+      </a>
+      <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md">
+       <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
+        Trang cá nhân
+       </a>
+       <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
+        Đơn Hàng
+       </a>
+       <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
+        Thoát
+       </a>
+      </div>
+     </div>
+     <a class="text-gray-800 hover:text-gray-600" href="#">
+      Đăng Nhập
+     </a>
+     <a class="text-gray-800 hover:text-gray-600" href="#">
+      Đăng Kí
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- Main Content -->
+  {% block home %}{% endblock home %}
+  {% block banggiakimcuong %}{% endblock banggiakimcuong %}
+  {% block login %}{% endblock %}
+  <!-- Footer -->
+  <footer class="bg-white shadow-md mt-16">
+   <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">
+       Về Chúng Tôi
+      </h3>
+      <p class="text-gray-600">
+       Cửa hàng kim cương uy tín, chất lượng cao, cung cấp các sản phẩm kim cương đa dạng và dịch vụ chuyên nghiệp.
+      </p>
+     </div>
+     <div>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">
+       Liên Hệ
+      </h3>
+      <p class="text-gray-600">
+       Địa chỉ: 123 Đường ABC, Quận 1, TP. HCM
+      </p>
+      <p class="text-gray-600">
+       Điện thoại: 0123 456 789
+      </p>
+      <p class="text-gray-600">
+       Email: info@cuahangkimcuong.com
+      </p>
+     </div>
+     <div>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">
+       Dịch Vụ
+      </h3>
+      <ul class="text-gray-600">
+       <li>
+        <a class="hover:text-gray-800" href="#">
+         Bảo Hành
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-gray-800" href="#">
+         Chứng Nhận Kim Cương
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-gray-800" href="#">
+         Khuyến Mãi
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-gray-800" href="#">
+         Tích Lũy Điểm
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">
+       Mạng Xã Hội
+      </h3>
+      <div class="flex space-x-4">
+       <a class="text-gray-800 hover:text-gray-600" href="#">
+        <i class="fab fa-facebook-f">
+        </i>
+       </a>
+       <a class="text-gray-800 hover:text-gray-600" href="#">
+        <i class="fab fa-twitter">
+        </i>
+       </a>
+       <a class="text-gray-800 hover:text-gray-600" href="#">
+        <i class="fab fa-instagram">
+        </i>
+       </a>
+       <a class="text-gray-800 hover:text-gray-600" href="#">
+        <i class="fab fa-linkedin-in">
+        </i>
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </footer>
+ </body>
 </html>
