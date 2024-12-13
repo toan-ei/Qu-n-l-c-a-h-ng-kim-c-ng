@@ -46,4 +46,7 @@ def register(request):
         else:
             messages.error(request, "Mật khẩu không khớp.")
     return render(request, 'register.html')
+
+def phieubaohanh(request):
+    return render(request, 'phieubaohanh.html')
     
