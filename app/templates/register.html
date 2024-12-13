@@ -11,25 +11,42 @@
     </head>
     <body>
         {% block register %}
-        {% block content %}
-<section class="login-page">
+        {% block banner_slider %}
+<section class="banner">
     <div class="container">
-        <div class="login-box">
-            <h2>Đăng Nhập</h2>
-            <p>Chào mừng bạn trở lại! Hãy đăng nhập để tiếp tục.</p>
-            <form method="post" action="{% url 'login' %}">
+        <h1>Đăng Ký Tài Khoản</h1>
+        <p>Khám phá bộ sưu tập kim cương đẳng cấp</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="register-page">
+    <div class="container">
+        <div class="register-box">
+            <h2>Đăng Ký</h2>
+            <p>Tạo tài khoản để nhận ưu đãi đặc biệt từ chúng tôi</p>
+            <form method="post" action="{% url 'register' %}">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="username">Tên đăng nhập </label>
+                    <label for="username">Tên đăng nhập</label>
                     <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Nhập email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Mật khẩu</label>
                     <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
                 </div>
-                <button type="submit" class="btn-login">Đăng Nhập</button>
+                <div class="form-group">
+                    <label for="confirm_password">Xác nhận mật khẩu</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Nhập lại mật khẩu" required>
+                </div>
+                <button type="submit" class="btn-register">Đăng Ký</button>
             </form>
-            <p>Chưa có tài khoản? <a href="{% url 'register' %}">Đăng ký ngay</a></p>
+            <p>Đã có tài khoản? <a href="{% url 'login' %}">Đăng nhập ngay</a></p>
         </div>
     </div>
 </section>
@@ -38,7 +55,7 @@
 <style>
 /* Banner Section */
 .banner {
-    background: url("{% static 'images/diamond-login-banner.jpg' %}") no-repeat center center/cover;
+    background: url("{% static 'images/diamond-banner.jpg' %}") no-repeat center center/cover;
     padding: 60px 0;
     text-align: center;
     color: #fff;
@@ -54,13 +71,13 @@
     font-size: 18px;
 }
 
-/* Login Page */
-.login-page {
-    background-color: #f8f9fa;
+/* Register Page */
+.register-page {
+    background-color:rgb(248, 250, 250);
     padding: 50px 0;
 }
 
-.login-box {
+.register-box {
     background: #fff;
     padding: 30px 40px;
     max-width: 500px;
@@ -70,13 +87,13 @@
     text-align: center;
 }
 
-.login-box h2 {
+.register-box h2 {
     font-size: 28px;
     margin-bottom: 10px;
     color: #333;
 }
 
-.login-box p {
+.register-box p {
     color: #666;
     margin-bottom: 20px;
 }
@@ -108,7 +125,7 @@
     box-shadow: 0 0 8px rgba(209, 168, 88, 0.2);
 }
 
-.btn-login {
+.btn-register {
     width: 100%;
     padding: 10px;
     background-color: #d1a858; /* Vàng ánh kim */
@@ -121,16 +138,16 @@
     transition: background-color 0.3s ease;
 }
 
-.btn-login:hover {
+.btn-register:hover {
     background-color: #b08b46;
 }
 
-.login-box a {
+.register-box a {
     color: #d1a858;
     text-decoration: none;
 }
 
-.login-box a:hover {
+.register-box a:hover {
     text-decoration: underline;
 }
 </style>
