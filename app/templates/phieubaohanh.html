@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Phiếu Bảo Hành{% endblock %}
+{% block Phieubaohanh %}
+
+<main class="container mx-auto p-4">
+    <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <h2 class="text-xl font-bold mb-4">Điền Thông Tin Phiếu Bảo Hành</h2>
+        <form class="space-y-4">
+            <div>
+<label for="product-name" class="block text-sm font-medium text-gray-700">Tên sản phẩm</label>
+                <input type="text" id="product-name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="warranty-number" class="block text-sm font-medium text-gray-700">Số phiếu bảo hành</label>
+                <input type="text" id="warranty-number" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="purchase-date" class="block text-sm font-medium text-gray-700">Ngày mua</label>
+                <input type="date" id="purchase-date" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="customer-name" class="block text-sm font-medium text-gray-700">Tên khách hàng</label>
+                <input type="text" id="customer-name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="customer-phone" class="block text-sm font-medium text-gray-700">Số điện thoại</label>
+                <input type="text" id="customer-phone" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="customer-email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="customer-email" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Lưu thông tin</button>
+        </form>
+    </section>
+    <section class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold mb-4">Giấy chứng nhận kim cương theo tiêu chuẩn 4C của GIA</h2>
+        <form class="space-y-4">
+            <div>
+                <label for="diamond-certificate-number" class="block text-sm font-medium text-gray-700">Số giấy chứng nhận</label>
+                <input type="text" id="diamond-certificate-number" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+<div>
+                <label for="diamond-carat" class="block text-sm font-medium text-gray-700">Carat</label>
+                <input type="text" id="diamond-carat" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="diamond-color" class="block text-sm font-medium text-gray-700">Màu sắc</label>
+                <input type="text" id="diamond-color" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="diamond-clarity" class="block text-sm font-medium text-gray-700">Độ tinh khiết</label>
+                <input type="text" id="diamond-clarity" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="diamond-cut" class="block text-sm font-medium text-gray-700">Giác cắt</label>
+                <input type="text" id="diamond-cut" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Lưu thông tin</button>
+        </form>
+    </section>
+</main>
+
+
+{% endblock %}
