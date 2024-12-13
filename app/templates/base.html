@@ -5,11 +5,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!--CSS-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link href="{%static 'app/css/style.css'%}" rel="stylesheet" >
-        <link href="{%static 'app/css/owl.carousel.min.css'%}" rel="stylesheet" >
-        <link href="{%static 'app/css/all.min.css'%}" rel="stylesheet" >
-        <link href="{%static 'app/css/main.css'%}" rel="stylesheet" >
+        <script src="https://cdn.tailwindcss.com"/>
+
         <!--JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -22,9 +19,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
- <body class="font-roboto bg-gray-100">
+ <body class="font-roboto bg-gray-100" style="background-color: #525252;">
   <!-- Header -->
-  <nav class="bg-white shadow-md">
+  <nav class=" shadow-md" style="background-color: #94a3b8;">
    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
     <a class="flex items-center text-xl font-bold text-gray-800" href="#">
      <img alt="Logo của cửa hàng kim cương" class="inline-block mr-2" height="50" src="https://storage.googleapis.com/a1aa/image/uYb4d6Kbz4Y7KRtbboqpMNlhDcjvn73OytN13Lhkg73edu7JA.jpg" width="50"/>
@@ -37,30 +34,17 @@
      </i>
     </button>
     <div class="hidden lg:flex lg:items-center lg:space-x-4">
-     <a class="text-gray-800 hover:text-gray-600" href="#">
+     <a class="text-gray-800 hover:text-gray-600" href="http://127.0.0.1:8000">
       Trang Chủ
      </a>
-     <div class="relative group">
-      <a class="text-gray-800 hover:text-gray-600" href="#">
-       Sản Phẩm
-      </a>
-      <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md">
-       <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
-        Action
+     <a class="text-gray-800 hover:text-gray-600" href="sanpham">
+        Sản Phẩm
        </a>
-       <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
-        Another action
-       </a>
-       <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
-        Something else here
-       </a>
-      </div>
-     </div>
      <a class="text-gray-800 hover:text-gray-600" href="#">
       Bộ Sưu Tập
      </a>
      <a class="text-gray-800 hover:text-gray-600" href="#">
-      Bảng Giá Kim Cương
+      Bảng Giá 
      </a>
     </div>
     <div class="hidden lg:flex lg:items-center lg:space-x-4">
@@ -79,7 +63,7 @@
         Trang cá nhân
        </a>
        <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
-        Đơn Hàng
+        lịch sử giao dịch
        </a>
        <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">
         Thoát
@@ -99,11 +83,11 @@
   {% block home %}{% endblock %}
   {% block pageBangGiaKimCuong %}{% endblock %}
   {% block pageLogin %}{% endblock %}
-  <!-- Giao diện -->
-  {% block register %}{% endblock register %}
-  <!-- Footer -->
+  {% block register %}{% endblock %}
+  {% block sanpham %}{% endblock %}
   {% block Phieubaohanh %}{% endblock %}
-  <footer class="bg-white shadow-md mt-16">
+  <!-- Footer -->
+  <footer class="shadow-md mt-16" style="background-color: #94a3b8;">
    <div class="container mx-auto px-4 py-8">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
      <div>
@@ -111,7 +95,7 @@
        Về Chúng Tôi
       </h3>
       <p class="text-gray-600">
-       Cửa hàng kim cương uy tín, chất lượng cao, cung cấp các sản phẩm kim cương đa dạng và dịch vụ chuyên nghiệp.
+       Cửa hàng kim cương đa quốc gia, đến từ châu âu.
       </p>
      </div>
      <div>
@@ -119,7 +103,7 @@
        Liên Hệ
       </h3>
       <p class="text-gray-600">
-       Địa chỉ: 123 Đường ABC, Quận 1, TP. HCM
+       Địa chỉ: 111
       </p>
       <p class="text-gray-600">
        Điện thoại: 0123 456 789

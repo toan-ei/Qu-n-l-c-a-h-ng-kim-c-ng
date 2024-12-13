@@ -7,12 +7,13 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 # Create your views here.
 def home(request):
-    context = []
     return render(request, 'home.html')
 def boSieuTap(request):
     return render(request, 'BoSieuTap.html')
 def bangGiaKimCuong(request):
     return render(request, 'banggiakimcuong.html')
+def sanpham(request):
+    return render(request, 'sanpham.html')
 def loginPage(request):
     if request.method == 'POST':
         username = request.POST['username']
