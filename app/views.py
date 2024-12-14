@@ -50,4 +50,6 @@ def register(request):
 
 def phieubaohanh(request):
     return render(request, 'phieubaohanh.html')
+def phieutichdiem(request):
+    return render(request, 'phieutichdiem.html')
     
