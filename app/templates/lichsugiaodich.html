@@ -1,0 +1,369 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Lịch sử giao dịch{% endblock %}
+{% block home %}
+<div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold text-center mb-6">
+     Lịch Sử Giao Dịch
+    </h1>
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+     <table class="min-w-full bg-white">
+      <thead class="bg-gray-800 text-white">
+       <tr>
+        <th class="py-3 px-4 uppercase font-semibold text-sm text-left">
+         Ngày
+        </th>
+        <th class="py-3 px-4 uppercase font-semibold text-sm text-left">
+         Mã Giao Dịch
+        </th>
+        <th class="py-3 px-4 uppercase font-semibold text-sm text-left">
+         Khách Hàng
+        </th>
+        <th class="py-3 px-4 uppercase font-semibold text-sm text-left">
+         Sản Phẩm
+        </th>
+        <th class="py-3 px-4 uppercase font-semibold text-sm text-left">
+         Số Tiền
+        </th>
+        <th class="py-3 px-4 uppercase font-semibold text-sm text-left">
+         Trạng Thái
+        </th>
+       </tr>
+      </thead>
+      <tbody class="text-gray-700">
+       <tr>
+        <td class="py-3 px-4">
+         2023-10-01
+        </td>
+        <td class="py-3 px-4">
+         TXN123456
+        </td>
+        <td class="py-3 px-4">
+         John Doe
+        </td>
+        <td class="py-3 px-4">
+         Nhẫn Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $5000
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-green-500">
+          Hoàn Thành
+         </span>
+        </td>
+       </tr>
+       <tr class="bg-gray-100">
+        <td class="py-3 px-4">
+         2023-09-28
+        </td>
+        <td class="py-3 px-4">
+         TXN123457
+        </td>
+        <td class="py-3 px-4">
+         Jane Smith
+        </td>
+        <td class="py-3 px-4">
+         Dây Chuyền Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $7500
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-yellow-500">
+          Đang Chờ
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td class="py-3 px-4">
+         2023-09-25
+        </td>
+        <td class="py-3 px-4">
+         TXN123458
+        </td>
+        <td class="py-3 px-4">
+         Alice Johnson
+        </td>
+        <td class="py-3 px-4">
+         Bông Tai Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $3000
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-red-500">
+          Đã Hủy
+         </span>
+        </td>
+       </tr>
+       <tr class="bg-gray-100">
+        <td class="py-3 px-4">
+         2023-09-20
+        </td>
+        <td class="py-3 px-4">
+         TXN123459
+        </td>
+        <td class="py-3 px-4">
+         Bob Brown
+        </td>
+        <td class="py-3 px-4">
+         Vòng Tay Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $4500
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-green-500">
+Hoàn Thành
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td class="py-3 px-4">
+         2023-09-15
+        </td>
+        <td class="py-3 px-4">
+         TXN123460
+        </td>
+        <td class="py-3 px-4">
+         Charlie Davis
+        </td>
+        <td class="py-3 px-4">
+         Mặt Dây Chuyền Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $6000
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-green-500">
+          Hoàn Thành
+         </span>
+        </td>
+       </tr>
+       <tr class="bg-gray-100">
+        <td class="py-3 px-4">
+         2023-09-10
+        </td>
+        <td class="py-3 px-4">
+         TXN123461
+        </td>
+        <td class="py-3 px-4">
+         Diana Evans
+        </td>
+        <td class="py-3 px-4">
+         Nhẫn Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $5000
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-yellow-500">
+          Đang Chờ
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td class="py-3 px-4">
+         2023-09-05
+        </td>
+        <td class="py-3 px-4">
+         TXN123462
+        </td>
+        <td class="py-3 px-4">
+         Eve Foster
+        </td>
+        <td class="py-3 px-4">
+         Dây Chuyền Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $7500
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-red-500">
+          Đã Hủy
+         </span>
+        </td>
+       </tr>
+       <tr class="bg-gray-100">
+        <td class="py-3 px-4">
+         2023-09-01
+        </td>
+        <td class="py-3 px-4">
+         TXN123463
+        </td>
+        <td class="py-3 px-4">
+         Frank Green
+        </td>
+        <td class="py-3 px-4">
+         Bông Tai Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $3000
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-green-500">
+          Hoàn Thành
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td class="py-3 px-4">
+         2023-08-28
+        </td>
+        <td class="py-3 px-4">
+         TXN123464
+        </td>
+        <td class="py-3 px-4">
+         Grace Harris
+        </td>
+        <td class="py-3 px-4">
+         Vòng Tay Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $4500
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-yellow-500">
+          Đang Chờ
+         </span>
+        </td>
+       </tr>
+       <tr class="bg-gray-100">
+        <td class="py-3 px-4">
+         2023-08-25
+        </td>
+        <td class="py-3 px-4">
+         TXN123465
+        </td>
+        <td class="py-3 px-4">
+         Henry Irving
+        </td>
+        <td class="py-3 px-4">
+         Mặt Dây Chuyền Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $6000
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-green-500">
+          Hoàn Thành
+         </span>
+</td>
+       </tr>
+       <tr>
+        <td class="py-3 px-4">
+         2023-08-20
+        </td>
+        <td class="py-3 px-4">
+         TXN123466
+        </td>
+        <td class="py-3 px-4">
+         Ivy Johnson
+        </td>
+        <td class="py-3 px-4">
+         Nhẫn Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $5000
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-red-500">
+          Đã Hủy
+         </span>
+        </td>
+       </tr>
+       <tr class="bg-gray-100">
+        <td class="py-3 px-4">
+         2023-08-15
+        </td>
+        <td class="py-3 px-4">
+         TXN123467
+        </td>
+        <td class="py-3 px-4">
+         Jack King
+        </td>
+        <td class="py-3 px-4">
+         Dây Chuyền Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $7500
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-green-500">
+          Hoàn Thành
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td class="py-3 px-4">
+         2023-08-10
+        </td>
+        <td class="py-3 px-4">
+         TXN123468
+        </td>
+        <td class="py-3 px-4">
+         Karen Lee
+        </td>
+        <td class="py-3 px-4">
+         Bông Tai Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $3000
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-yellow-500">
+          Đang Chờ
+         </span>
+        </td>
+       </tr>
+       <tr class="bg-gray-100">
+        <td class="py-3 px-4">
+         2023-08-05
+        </td>
+        <td class="py-3 px-4">
+         TXN123469
+        </td>
+        <td class="py-3 px-4">
+         Leo Martin
+        </td>
+        <td class="py-3 px-4">
+         Vòng Tay Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $4500
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-red-500">
+          Đã Hủy
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td class="py-3 px-4">
+         2023-08-01
+        </td>
+        <td class="py-3 px-4">
+         TXN123470
+        </td>
+        <td class="py-3 px-4">
+         Mia Nelson
+        </td>
+        <td class="py-3 px-4">
+         Mặt Dây Chuyền Kim Cương
+        </td>
+        <td class="py-3 px-4">
+         $6000
+        </td>
+        <td class="py-3 px-4">
+         <span class="text-green-500">
+          Hoàn Thành
+         </span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+
+{% endblock %}
