@@ -3,10 +3,12 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
-    path('bosieutap', views.boSieuTap),
+    path('bosuutap', views.boSuuTap),
     path('banggiakimcuong', views.bangGiaKimCuong),
     path( 'login',views.loginPage, name="login"),
     path( 'register',views.register, name="register"),
-    path('phieubaohanh', views.phieubaohanh, name='phieubaohanh'),
-    path('sanpham', views.sanpham, name="sanpham")
+    path('phieubaohanh/', views.phieubaohanh, name='phieubaohanh'),
+    path('sanpham', views.sanpham, name="sanpham"),
+    path('phieutichdiem/', views.phieutichdiem, name='phieutichdiem'),
+    path('lichsugiaodich/', views.lichsugiaodich, name='lichsugiaodich'),
 ]
