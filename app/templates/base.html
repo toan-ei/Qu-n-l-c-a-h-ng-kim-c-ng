@@ -6,6 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!--CSS-->
         <script src="https://cdn.tailwindcss.com"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6x+6KZ19b6e1bQ3avAkd+YX4E5Z3K3T6Pc7aMbD51p46yQYT+8TVi0H+ynO9w7E9Fth7w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
         <!--JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -48,12 +50,18 @@
      </a>
     </div>
     <div class="hidden lg:flex lg:items-center lg:space-x-4">
-     <form class="flex items-center">
-      <input class="form-input px-4 py-2 rounded-md border border-gray-300" placeholder="Search" type="text"/>
-      <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md" type="submit">
-       Search
-      </button>
-     </form>
+        <form class="flex items-center">
+            <div class="search relative"> 
+              <input 
+                class="form-input px-4 py-2 pr-10 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Search"
+                type="text"
+              />
+              <i 
+              class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"
+              ></i>
+            </div>
+          </form>             
      <div class="relative group">
       <a class="text-gray-800 hover:text-gray-600" href="#">
        UserName
