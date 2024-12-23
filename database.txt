@@ -1,0 +1,62 @@
+User:
+	userId;
+	role; (admin or khách hàng)
+	name;
+	phone;
+	address;
+	email;
+Product:
+	productId;
+	khuyenMaiId;
+	name;
+	priceGoc;
+	PriceKhuyenMai;
+	loại sản phẩm;
+	size;
+	xuất xứ;
+	image;
+	carat;
+	color;
+	purity; (độ tinh khiết)
+	cutting angle; (giác cắt)
+PhieuBaoHanh:
+	productId;
+	phieuBaoHanhId;
+	name;
+	dateOrder;
+	timeBaoHanh;
+	nội dung;
+khuyenMai:
+	khuyenMaiId;
+	nameKhuyenMai;
+	maKhuyenMai;
+	dateStart;
+	dateEnd;
+	%downprice;
+	text;
+TransactionUser: (giao dịch User nào thì chỉ thấy của User đó)
+	transactionUserId;
+	userId;
+	productId;
+	phieuBaoHanhId;
+	dateOrder
+	status;
+Transaction: (nằm ngoài trang chủ ai cũng có thể thấy được. tất cả user)
+	transactionId;
+	TransactionUser; ( kế thừa tất cả)
+	quantity;
+	
+<!--phần này giải thích csdl-->
+MỐI QUAN HỆ 	
+Mối quan hệ chính (ERD):
+	User ↔ TransactionUser: 1 User có nhiều giao dịch.
+	Product ↔ TransactionUser: 1 Product có thể thuộc nhiều giao dịch khác nhau.
+	PhieuBaoHanh ↔ TransactionUser: 1 Phiếu bảo hành liên kết với một giao dịch cụ thể.
+	KhuyenMai ↔ Product: 1 Khuyến mãi áp dụng cho nhiều sản phẩm.
+	TransactionUser ↔ Transaction: 1 TransactionUser được tổng hợp vào bảng Transaction.
+Quan hệ cụ thể:
+	UserID (FK) trong bảng TransactionUser liên kết với bảng User.
+	ProductID (FK) trong bảng TransactionUser liên kết với bảng Product.
+	PhieuBaoHanhID (FK) trong bảng TransactionUser liên kết với bảng PhieuBaoHanh.
+	KhuyenMaiID (FK) trong bảng Product liên kết với bảng KhuyenMai.
+	TransactionUserID (FK) trong bảng Transaction liên kết với bảng TransactionUser
