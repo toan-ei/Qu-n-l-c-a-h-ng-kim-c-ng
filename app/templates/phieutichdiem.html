@@ -3,57 +3,42 @@
 {% block title %}Phiếu Tích Điểm{% endblock %}
 
 {% block Phieutichdiem %}
-<main class="container mx-auto p-4">
-    <!-- Chương trình khuyến mãi -->
-    <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
-        <h2 class="text-xl font-bold mb-4">Chương trình khuyến mãi</h2>
-        <form class="space-y-4">
-            <div>
-                <label for="promotion-name" class="block text-sm font-medium text-gray-700">Tên chương trình</label>
-                <input type="text" id="promotion-name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+<!-- Phiếu tích điểm và khuyến mãi section starts -->
+<section class="loyalty_promotion_area bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h2 class="text-center mb-4">Điền Thông Tin Phiếu Tích Điểm & Khuyến Mãi</h2>
+                <form class="loyalty_promotion_form">
+                    <div class="form-group">
+                        <label for="customer-name" class="form-label">Tên khách hàng</label>
+                        <input type="text" id="customer-name" class="form-control" placeholder="Nhập tên khách hàng">
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-phone" class="form-label">Số điện thoại</label>
+                        <input type="text" id="customer-phone" class="form-control" placeholder="Nhập số điện thoại">
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-email" class="form-label">Email</label>
+                        <input type="email" id="customer-email" class="form-control" placeholder="Nhập email">
+                    </div>
+                    <div class="form-group">
+                        <label for="loyalty-points" class="form-label">Số điểm tích lũy</label>
+                        <input type="number" id="loyalty-points" class="form-control" placeholder="Nhập số điểm tích lũy">
+                    </div>
+                    <div class="form-group">
+                        <label for="promotion-code" class="form-label">Mã khuyến mãi</label>
+                        <input type="text" id="promotion-code" class="form-control" placeholder="Nhập mã khuyến mãi">
+                    </div>
+                    <div class="form-group">
+                        <label for="promotion-expiry" class="form-label">Hạn sử dụng khuyến mãi</label>
+                        <input type="date" id="promotion-expiry" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Lưu Thông Tin</button>
+                </form>
             </div>
-            <div>
-                <label for="promotion-code" class="block text-sm font-medium text-gray-700">Mã khuyến mãi</label>
-                <input type="text" id="promotion-code" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div>
-                <label for="promotion-start-date" class="block text-sm font-medium text-gray-700">Ngày bắt đầu</label>
-                <input type="date" id="promotion-start-date" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div>
-                <label for="promotion-end-date" class="block text-sm font-medium text-gray-700">Ngày kết thúc</label>
-                <input type="date" id="promotion-end-date" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div>
-                <label for="promotion-description" class="block text-sm font-medium text-gray-700">Mô tả</label>
-                <textarea id="promotion-description" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
-            </div>
-            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Lưu thông tin</button>
-        </form>
-    </section>
-
-    <!-- Tích lũy điểm -->
-    <section class="bg-white p-6 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-4">Tích lũy điểm</h2>
-        <form class="space-y-4">
-            <div>
-                <label for="customer-name" class="block text-sm font-medium text-gray-700">Tên khách hàng</label>
-                <input type="text" id="customer-name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div>
-                <label for="customer-phone" class="block text-sm font-medium text-gray-700">Số điện thoại khách hàng</label>
-<input type="text" id="customer-phone" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div>
-                <label for="customer-email" class="block text-sm font-medium text-gray-700">Email khách hàng</label>
-                <input type="email" id="customer-email" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div>
-                <label for="points-earned" class="block text-sm font-medium text-gray-700">Điểm tích lũy</label>
-                <input type="number" id="points-earned" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Lưu thông tin</button>
-        </form>
-    </section>
-</main>
+        </div>
+    </div>
+</section>
+<!-- Phiếu tích điểm và khuyến mãi section ends -->
 {% endblock %}
