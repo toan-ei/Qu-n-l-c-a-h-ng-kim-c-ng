@@ -74,16 +74,16 @@ WSGI_APPLICATION = 'cuahangkimcuong.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DjangoKimCuong', 
-        'USER': 'root', 
-        'PASSWORD': '1234',   
-        'HOST': '127.0.0.1', 
-        'PORT': '3306',
-    }
-}
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.mysql',
+   #     'NAME': 'DjangoKimCuong', 
+    #    'USER': 'root', 
+     #   'PASSWORD': '1234',   
+      #  'HOST': '127.0.0.1', 
+       # 'PORT': '3306',
+    #}
+#}
 
 
 # Password validation
