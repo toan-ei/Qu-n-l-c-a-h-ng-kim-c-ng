@@ -2578,3 +2578,66 @@ p {
 .product_grid .product_item p {
   font-size: 16px;
 }
+
+/* Kienthuc.html */
+.section-knowledge {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.diamond-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.diamond-card {
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.diamond-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.diamond-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+}
+
+.diamond-description {
+  font-size: 14px;
+  color: #777;
+}
+
+.diamond-guide, .diamond-care {
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.diamond-guide-image, .diamond-care-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.diamond-guide-description, .diamond-care-description {
+  font-size: 16px;
+  color: #666;
+}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Kiến thức về kim cương{% endblock %}
+{% block kienthuc %}
+<div class="content">
+    <!-- Section: Giới thiệu về Kim Cương -->
+    <section class="section-knowledge">
+        <h2 class="section-title">
+            Giới Thiệu Về Kim Cương
+        </h2>
+        <p class="section-description">
+            Kim cương là một trong những loại đá quý quý giá nhất trên thế giới. Chúng được biết đến với độ cứng và độ sáng lấp lánh đặc biệt.
+        </p>
+    </section>
+
+    <!-- Section: Các loại Kim Cương -->
+    <section class="section-knowledge">
+        <h2 class="section-title">
+            Các Loại Kim Cương
+        </h2>
+        <div class="diamond-grid">
+            <div class="diamond-card">
+                <img alt="Hình ảnh một viên kim cương trắng lấp lánh" class="diamond-image" src="{% static 'app/image/diamond-white.jpg' %}" />
+                <h3 class="diamond-title">
+                    Kim Cương Trắng
+                </h3>
+                <p class="diamond-description">
+                    Kim cương trắng là loại phổ biến nhất và được ưa chuộng nhất.
+                </p>
+            </div>
+            <div class="diamond-card">
+                <img alt="Hình ảnh một viên kim cương màu vàng lấp lánh" class="diamond-image" src="{% static 'app/image/diamond-yellow.jpg' %}" />
+                <h3 class="diamond-title">
+                    Kim Cương Vàng
+                </h3>
+                <p class="diamond-description">
+                    Kim cương vàng có màu sắc ấm áp và quý phái.
+                </p>
+            </div>
+            <div class="diamond-card">
+                <img alt="Hình ảnh một viên kim cương màu xanh lấp lánh" class="diamond-image" src="{% static 'app/image/diamond-blue.jpg' %}" />
+                <h3 class="diamond-title">
+                    Kim Cương Xanh
+                </h3>
+                <p class="diamond-description">
+                    Kim cương xanh hiếm và có giá trị cao.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Cách Chọn Kim Cương -->
+    <section class="section-knowledge">
+        <h2 class="section-title">
+            Cách Chọn Kim Cương
+        </h2>
+        <div class="diamond-guide">
+            <img alt="Hình ảnh một người đang chọn kim cương với kính lúp" class="diamond-guide-image" src="{% static 'app/image/choosing-diamond.jpg' %}" />
+            <p class="diamond-guide-description">
+                Khi chọn kim cương, bạn nên xem xét các yếu tố như kích thước, màu sắc, độ trong suốt và giá cả. Hãy chắc chắn rằng bạn mua từ một nguồn đáng tin cậy.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section: Bảo Quản Kim Cương -->
+    <section class="section-knowledge">
+        <h2 class="section-title">
+            Bảo Quản Kim Cương
+        </h2>
+        <div class="diamond-care">
+            <img alt="Hình ảnh một hộp đựng kim cương an toàn" class="diamond-care-image" src="{% static 'app/image/.jpg' %}" />
+            <p class="diamond-care-description">
+                Để bảo quản kim cương, bạn nên giữ chúng trong hộp đựng riêng biệt và tránh tiếp xúc với các hóa chất mạnh. Hãy làm sạch kim cương thường xuyên để giữ cho chúng luôn sáng bóng.
+            </p>
+        </div>
+    </section>
+</div>
+{% endblock %}

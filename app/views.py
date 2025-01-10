@@ -54,3 +54,5 @@ def phieutichdiem(request):
     return render(request, 'phieutichdiem.html')
 def lichsugiaodich(request):
     return render(request, 'lichsugiaodich.html')
+def kienthuc(request):
+    return render(request, 'kienthuc.html')
