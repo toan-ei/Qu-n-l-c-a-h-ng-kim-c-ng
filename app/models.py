@@ -1,87 +1,108 @@
 from django.db import models
 
-
-# User model
 class User(models.Model):
-    ROLE_CHOICES = [
-        ('admin', 'Admin'),
-        ('khach_hang', 'Khách hàng'),
-    ]
     user_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
-    phone = models.CharField(max_length=15)
-    address = models.TextField()
-    email = models.EmailField(unique=True)
-    role = models.CharField(max_length=50, choices=ROLE_CHOICES, default='khach_hang')
+    email = models.TextField()
+    username = models.CharField(max_length=100, unique=True)
+    password = models.CharField(max_length=128)
 
     def __str__(self):
-        return self.name
+        return self.username
 
 
-# KhuyenMai model
-class KhuyenMai(models.Model):
-    khuyen_mai_id = models.AutoField(primary_key=True)
-    name_khuyen_mai = models.CharField(max_length=255)
-    ma_khuyen_mai = models.CharField(max_length=50, unique=True)
-    date_start = models.DateField()
-    date_end = models.DateField()
-    down_price = models.FloatField()  # Discount percentage
-    text = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.name_khuyen_mai
-
-
-# Product model
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
-    khuyen_mai = models.ForeignKey(KhuyenMai, on_delete=models.SET_NULL, null=True, blank=True)
-    name = models.CharField(max_length=255)
-    price_goc = models.DecimalField(max_digits=10, decimal_places=2)
-    price_khuyen_mai = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    loai_san_pham = models.CharField(max_length=255)
-    size = models.CharField(max_length=50)
-    xuat_xu = models.CharField(max_length=255)
-    carat = models.DecimalField(max_digits=5, decimal_places=2)
-    color = models.CharField(max_length=50)
-    purity = models.CharField(max_length=50)
-    cutting_angle = models.CharField(max_length=50)
+    product_name = models.CharField(max_length=100)
+    product_description = models.TextField(blank=True)
+    product_description_sub = models.TextField(blank=True)
+    product_price = models.DecimalField(max_digits=10, decimal_places=2)
+    product_image_first = models.CharField(max_length=100)
+    product_image_second = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return self.product_name
 
 
-# PhieuBaoHanh model
-class PhieuBaoHanh(models.Model):
-    phieu_bao_hanh_id = models.AutoField(primary_key=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
-    date_order = models.DateField()
-    time_bao_hanh = models.IntegerField(help_text="Số tháng bảo hành")
-    noi_dung = models.TextField()
-
-    def __str__(self):
-        return f"{self.name} - {self.product.name}"
-
-
-# TransactionUser model
-class TransactionUser(models.Model):
-    transaction_user_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    phieu_bao_hanh = models.ForeignKey(PhieuBaoHanh, on_delete=models.SET_NULL, null=True, blank=True)
-    date_order = models.DateField()
-    status = models.CharField(max_length=50, choices=[('pending', 'Pending'), ('completed', 'Completed')])
-
-    def __str__(self):
-        return f"Giao dịch {self.transaction_user_id} - {self.user.name}"
-
-
-# Transaction model
-class Transaction(models.Model):
-    transaction_id = models.AutoField(primary_key=True)
-    transaction_user = models.ForeignKey(TransactionUser, on_delete=models.CASCADE)
+class Order(models.Model):
+    order_id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
+    total_price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.PositiveIntegerField()
+    product_name = models.CharField(max_length=100)
+    product_price = models.DecimalField(max_digits=10, decimal_places=2)
+    product_image_first = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"Transaction {self.transaction_id}"
+        return f"Order #{self.order_id} - User: {self.user.username}"
+
+
+class OrderItem(models.Model):
+    order_item_id = models.AutoField(primary_key=True)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='order_items')
+    quantity = models.PositiveIntegerField()
+    product_price = models.DecimalField(max_digits=10, decimal_places=2)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2)
+    discount_value = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
+
+    def __str__(self):
+        return f"OrderItem #{self.order_item_id} - Product: {self.product.product_name}"
+
+
+class Payment(models.Model):
+    payment_id = models.AutoField(primary_key=True)
+    order = models.OneToOneField(Order, on_delete=models.CASCADE, related_name='payment')
+    payment_date = models.DateTimeField(auto_now_add=True)
+    payment_method = models.CharField(max_length=50)
+    payment_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    payment_status = models.CharField(max_length=20, choices=[
+        ('Pending', 'Pending'),
+        ('Completed', 'Completed'),
+        ('Failed', 'Failed')
+    ])
+
+    def __str__(self):
+        return f"Payment #{self.payment_id} - Status: {self.payment_status}"
+
+
+class Warranty(models.Model):
+    warranty_id = models.AutoField(primary_key=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='warranties')
+    start_date = models.DateField()
+    end_date = models.DateField()
+    status = models.CharField(max_length=20, choices=[
+        ('Active', 'Active'),
+        ('Expired', 'Expired')
+    ])
+
+    def __str__(self):
+        return f"Warranty #{self.warranty_id} - Product: {self.product.product_name}"
+
+
+class Promotion(models.Model):
+    promotion_id = models.AutoField(primary_key=True)
+    promotion_title = models.CharField(max_length=100)
+    promotion_description = models.TextField(blank=True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    discount_type = models.CharField(max_length=20, choices=[
+        ('Percentage', 'Percentage'),
+        ('Fixed', 'Fixed')
+    ])
+    discount_value = models.DecimalField(max_digits=10, decimal_places=2)
+    status = models.CharField(max_length=20, choices=[
+        ('Active', 'Active'),
+        ('Inactive', 'Inactive')
+    ])
+
+    def __str__(self):
+        return self.promotion_title
+
+
+class PromotionProduct(models.Model):
+    promotion = models.ForeignKey(Promotion, on_delete=models.CASCADE, related_name='promotion_products')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='promotion_products')
+    discount_value = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"Promotion #{self.promotion.promotion_title} - Product: {self.product.product_name}"

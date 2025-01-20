@@ -1,82 +1,122 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Sản Phẩm{% endblock %}
-{% block home %}
+{% block sanpham %}
 <section class="product_section p_section1 product_black_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="product_area">
-            <div class="product_tab_button">
-              <ul class="nav" role="tablist">
-                <li>
-                  <a href="#featured" class="active" data-toggle="tab" role="tab" aria-controls="featured" aria-selected="true">Featured</a>
-                </li>
-                <li>
-                  <a href="#arrivals" data-toggle="tab" role="tab" aria-controls="arrivals" aria-selected="false">New Arrivals</a>
-                </li>
-                <li>
-                  <a href="#onsale" data-toggle="tab" role="tab" aria-controls="onsale" aria-selected="false">On-Sale</a>
-                </li>
-              </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="product_area">
+          <div class="product_tab_button">
+            <ul class="nav" role="tablist">
+              <li>
+                <a href="#featured" class="active" data-toggle="tab" role="tab" aria-controls="featured" aria-selected="true">Featured</a>
+              </li>
+              <li>
+                <a href="#onsale" data-toggle="tab" role="tab" aria-controls="onsale" aria-selected="false">On-Sale</a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <!-- Featured Section -->
+            <div class="tab-pane fade show active" id="featured" role="tabpanel">
+              <div class="product_container">
+                <div class="row list_product">
+                  <!-- Sản phẩm 1 -->
+                  
+                  <!-- Sao chép tương tự cho sản phẩm 2, 3, 4 -->
+                </div>
+              </div>
             </div>
-            <div class="tab-content">
-              <div class="tab-pane fade show active" id="featured" role="tabpanel">
-                <div class="product_container">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                      <div class="single_product">
-                        <div class="product_thumb">
-                          <a href="#" class="primary_img"><img src="{% static 'app/image/1 (3).jpg' %}" alt="product1"></a>
-                          <a href="#" class="secondary_img"><img src="{% static 'app/image/7.jpg' %}" alt="product1"></a>
-                          <div class="quick_button">
-                            <a href="#" data-toggle="modal" data-target="#modal_box" data-placement="top" data-original-title="quick view">Quick View</a>
-                          </div>
+            <!-- On Sale Section -->
+            <div class="tab-pane fade" id="onsale" role="tabpanel">
+              <div class="product_container">
+                <div class="row">
+                  <!-- Sản phẩm 1 -->
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="single_product">
+                      <div class="product_thumb">
+                        <a href="#" class="primary_img">
+                          <img src="{% static 'app/image/product1.jpg' %}" alt="product1">
+                        </a>
+                        <a href="#" class="secondary_img">
+                          <img src="{% static 'app/image/product2.jpg' %}" alt="product2">
+                        </a>
+                        <div class="quick_button">
+                          <a href="#" data-toggle="modal" data-target="#modal_box" data-placement="top" data-original-title="quick view">Quick View</a>
                         </div>
-                        <div class="product_content">
-                          <div class="tag_cate">
-                            <a href="#">Ring, Necklace</a>
-                            <a href="#">Earrings</a>
-                          </div>
-                          <h3><a href="#">Necklace</a></h3>
-                          <div class="price_box">
-                            <span class="old_price">Rs. 45654</span>
-                            <span class="current_price">Rs. 44015</span>
-                          </div>
-                          <div class="product_hover">
-                            <div class="product_ratings">
-                              <ul>
-                                <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
-                                <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
-                                <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
-                                <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
-                                <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
-                              </ul>
-                            </div>
-                            <div class="product_desc">
-                              <p>This is a gold ring with diamond and Lorem ipsum dolor sit amet.</p>
-                            </div>
-                            <div class="action_links">
-                              <ul>
-                                <li><a href="#" data-placement="top" title="Add to Wishlist" data-toggle="tooltip"><span class="ion-heart"></span></a></li>
-                                <li class="add_to_cart"><a href="#" title="Add to Cart">Add to Cart</a></li>
-                                <li><a href="#" title="Compare"><i class="ion-ios-settings-strong"></i></a></li>
-                              </ul>
-                            </div>
-                          </div>
+                      </div>
+                      <div class="product_content">
+                        <div class="tag_cate">
+                          <a href="#">Ring</a>
+                          <a href="#">Necklace</a>
+                        </div>
+                        <h3><a href="#">Bracelet</a></h3>
+                        <div class="price_box">
+                          <span class="old_price">Rs. 75654</span>
+                          <span class="current_price">Rs. 74015</span>
                         </div>
                       </div>
                     </div>
-                    <!-- Add more products here with the same structure -->
                   </div>
+                  <!-- Sao chép tương tự cho sản phẩm 2, 3, 4 -->
+                  <div class="col-lg-3 col-md-4 col-sm-6"> ... </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6"> ... </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6"> ... </div>
                 </div>
               </div>
-              <!-- Add other tabs content here -->
             </div>
           </div>
-        </div>
+    <!-- modal section starts -->
+    <div class="modal fade" id="modal_box" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="modal_body">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-lg-5 col-md-5 col-sm-12">
+                              <div class="modal_tab">
+                                  <div class="tab-content product-details-large">
+                                      <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                                          <div class="modal_tab_img">
+                                            <a href="#"><img src="" alt="" id="modalImage"></a>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                          </div>
+                          <div class="col-lg-7 col-md-7 col-sm-12">
+                              <div class="modal_right">
+                                  <div class="modal_title mb-10">
+                                      <h2 id="modalName"></h2>
+                                  </div>
+                                  <div class="modal_price mb-10">
+                                      <span class="new_price" id="modalPrice"></span>
+                                  </div>
+                                  <div class="see_all">
+                                      <a href="#">See All Features</a>
+                                  </div>
+                                  <div class="modal_add_to_cart mb-15">
+                                      <form action="#">
+                                          <input type="number" min="0" max="100" step="1">
+                                          <button type="submit" id="order_button">Đặt Hàng</button>
+                                      </form>
+                                  </div>
+                                  <div class="modal_description mb-15">
+                                      <p id = "modalDescription"></p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
-</section>
-  
+  </div>   
+  </div>
+</section> 
+<script src="{%static 'app/js/product.js'%}"></script>
 {% endblock %}
