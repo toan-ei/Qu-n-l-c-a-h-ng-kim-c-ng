@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'api_app',
     'rest_framework',
     'rest_framework.authtoken',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'DjangoKimCuong', 
         'USER': 'root', 
-        'PASSWORD': '1234',   
+        'PASSWORD': '123456',   
         'HOST': '127.0.0.1', 
         'PORT': '3306',
     }

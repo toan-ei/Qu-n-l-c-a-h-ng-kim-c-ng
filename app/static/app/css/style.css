@@ -2641,3 +2641,92 @@ p {
   font-size: 16px;
   color: #666;
 }
+
+/* checkout.css */
+.checkout {
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: black;
+}
+.checkout p{
+  color: black;
+}
+
+.checkout .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkout .product-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.checkout .product {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.checkout .product-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.checkout .discount-section, .checkout .summary {
+  margin: 20px 0;
+}
+
+.checkout .summary {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.checkout .summary-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkout .summary-product-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+
+.checkout textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkout button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.checkout button:hover {
+  background-color: #45a049;
+}
+
+.checkout input[type="number"], .checkout input[type="text"], .checkout input[type="email"], .checkout input[type="date"], .checkout select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
