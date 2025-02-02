@@ -87,17 +87,20 @@ function loginUser(data){
         body: JSON.stringify(data),
     })
     .then(function(response){
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Đăng nhập thất bại');
+        if (!response.ok) {
+            return response.json().then(err => {
+                throw new Error(err.message || 'Đăng nhập thất bại');
+            });
         }
+        return response.json();
     })
     .then(function(responseData){
-        console.log('Response:', responseData);
+        console.log( responseData);
+        localStorage.setItem('username', responseData.data.username);
         window.location.href = '/sanpham';
     })
     .catch(function(error){
+        alert('tài khoản hoặc mật khẩu sai');
         console.error('Error:', error);
     });
 }

@@ -23,6 +23,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <!--Header-->
+<body>
     <div class="home_black_version">
         <header class="header_area header_black">
             <!-- header top starts -->
@@ -43,29 +44,11 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="top_right text-right">
                                 <ul>
-                                    <li class="language">
-                                        <a href="#">English <i class="ion-chevron-down"></i></a>
-                                        <ul class="dropdown_language">
-                                            <li><a href="#">French</a></li>
-                                            <li><a href="#">Germany</a></li>
-                                            <li><a href="#">Hindi</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="currency">
-                                        <a href="#">INR <i class="ion-chevron-down"></i></a>
-                                        <ul class="dropdown_currency">
-                                            <li><a href="#">USD - Dollar</a></li>
-                                            <li><a href="#">EUR - Euro</a></li>
-                                            <li><a href="#">GBP - British Pound</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="top_links">
-                                        <a href="#">My Account <i class="ion-chevron-down"></i></a>
+                                    <li class="top_links">  
+                                        <a class='user_name' href="http://127.0.0.1:8000/login">đăng nhập <i class="ion-chevron-down"></i></a>
                                         <ul class="dropdown_links">
-                                            <li><a href="#">Checkout</a></li>
-                                            <li><a href="#">My Account</a></li>
-                                            <li><a href="#">Shopping Cart</a></li>
-                                            <li><a href="#">Wishlist</a></li>
+                                            <li><a href="#">đăng xuất</a></li>
+                                            <li><a href="#">giỏ hàng</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -491,6 +474,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <script src="{%static 'app/js/main.js'%}"></script>
+    <script src="{%static 'app/js/donelogin.js'%}"></script>
 </body>
 
 </html>

@@ -5,6 +5,8 @@ import json
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -15,39 +17,7 @@ def bangGiaKimCuong(request):
 def sanpham(request):
     return render(request, 'sanpham.html')
 def loginPage(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        
-        # Xác thực thông tin đăng nhập
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)  # Đăng nhập thành công
-            messages.success(request, "Đăng nhập thành công!")
-            return redirect('http://127.0.0.1:8000/')  # Chuyển hướng đến trang Home
-        else:
-            messages.error(request, "Tên đăng nhập hoặc mật khẩu không đúng.")
-    
     return render(request, 'login.html')
-def register(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        confirm_password = request.POST['confirm_password']
-
-        if password == confirm_password:
-            if not User.objects.filter(username=username).exists():
-                # Tạo tài khoản mới
-                User.objects.create_user(username=username, email=email, password=password)
-                messages.success(request, "Đăng ký thành công! Hãy đăng nhập.")
-                return redirect('login')  # Chuyển hướng đến trang đăng nhập
-            else:
-                messages.error(request, "Tên đăng nhập đã tồn tại.")
-        else:
-            messages.error(request, "Mật khẩu không khớp.")
-    return render(request, 'register.html')
-
 def phieubaohanh(request):
     return render(request, 'phieubaohanh.html')
 def phieutichdiem(request):
@@ -56,3 +26,16 @@ def lichsugiaodich(request):
     return render(request, 'lichsugiaodich.html')
 def kienthuc(request):
     return render(request, 'kienthuc.html')
+
+@login_required
+def addToCart(request, product_id):
+    product = get_object_or_404(Product, product_id=product_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+        messages.success(request, f"{product.product_name} đã được tăng số lượng trong giỏ hàng")
+    else:
+        messages.success(request, f"{product.product_name} đã được thêm vào giỏ hàng")
+    return redirect('sanpham')

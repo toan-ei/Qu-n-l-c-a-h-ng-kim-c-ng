@@ -45,7 +45,7 @@ function renderProduct(products){
                         </div>
                         <h3>
                             <a class="product_name" href="#">${product.product_name}</a>
-                        </h3>
+                        </h3>s
                         <div class="price_box">
                             <span class="current_price product_price">${product.product_price}</span>
                         </div>
@@ -56,26 +56,34 @@ function renderProduct(products){
     })
     listProductBlock.innerHTML = htmls.join('');
     clickQuickView();
-
 }
 
 function clickQuickView(){
-    let quickViewBtn = document.querySelectorAll('.quick_view_button');
-    quickViewBtn.forEach(function(quickView){
-        quickView.addEventListener('click', function(event){
-            event.preventDefault();
-            let productData = {
-                imageFirst: quickView.getAttribute('data-imagefirst'),
-                name: quickView.getAttribute('data-name'),
-                price: quickView.getAttribute('data-price'),
-                description: quickView.getAttribute('data-description-sub'),
-            };
-            console.log(productData);
-            document.getElementById('modalImage').src = productData.imageFirst;
-            document.getElementById('modalName').textContent = productData.name;
-            document.getElementById('modalPrice').textContent = productData.price;
-            document.getElementById('modalDescription').textContent = productData.description;
+    document.addEventListener('DOMContentLoaded', () => {
+        const quickViewButtons = document.querySelectorAll('.quick_button a');
+    
+        quickViewButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+    
+                const productId = button.getAttribute('data-id');
+                console.log('productId', productId)
+    
+                fetch(`/api/products/product/${productId}`)
+                    .then(response => response.json())
+                    .then(product => {
+                        console.log('product', product)
+                        // Cập nhật modal với thông tin sản phẩm
+                        document.getElementById('modalImage').src = product.data.product_image_first;
+                        document.getElementById('modalName').textContent = product.data.product_name;
+                        document.getElementById('modalPrice').textContent = `Rs. ${product.data.product_price}`;
+                        document.getElementById('modalDescription').textContent = product.data.product_description_sub;
+                        document.getElementById('order_button').setAttribute('data-id', product.data.product_id)
+                    })
+                    .catch(error => console.error('Lỗi khi tải thông tin sản phẩm:', error));
+            });
         });
     });
+    
 }
 

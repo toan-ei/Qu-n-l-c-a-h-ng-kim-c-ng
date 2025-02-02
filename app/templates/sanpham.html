@@ -23,49 +23,38 @@
               <div class="product_container">
                 <div class="row list_product">
                   <!-- Sản phẩm 1 -->
+                  {% for product in products %}
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="single_product">
+                      <div class="product_thumb" data-id="{{ product.product_id }}">
+                        <a href="#" class="primary_img">
+                          <img src="{{ product.product_image_first }}" alt="">
+                        </a>
+                        <a href="#" class="secondary_img">
+                          <img src="{{ product.product_image_second }}" alt="">
+                        </a>
+                        <div class="quick_button">
+                          <a href="#" data-toggle="modal" data-target="#modal_box" data-id="{{ product.product_id }}">uick View</a>
+                        </div>
+                      </div>
+                      <div class="product_content">
+                        <div class="tag_cate">
+                            <a class="product_description" href="#">{{product.product_description}}</a>
+                        </div>
+                        <h3><a href="#">{{ product.product_name }}</a></h3>
+                        <div class="price_box">
+                          <span class="current_price">{{ product.product_price }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
                   
                   <!-- Sao chép tương tự cho sản phẩm 2, 3, 4 -->
                 </div>
               </div>
             </div>
             <!-- On Sale Section -->
-            <div class="tab-pane fade" id="onsale" role="tabpanel">
-              <div class="product_container">
-                <div class="row">
-                  <!-- Sản phẩm 1 -->
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single_product">
-                      <div class="product_thumb">
-                        <a href="#" class="primary_img">
-                          <img src="{% static 'app/image/product1.jpg' %}" alt="product1">
-                        </a>
-                        <a href="#" class="secondary_img">
-                          <img src="{% static 'app/image/product2.jpg' %}" alt="product2">
-                        </a>
-                        <div class="quick_button">
-                          <a href="#" data-toggle="modal" data-target="#modal_box" data-placement="top" data-original-title="quick view">Quick View</a>
-                        </div>
-                      </div>
-                      <div class="product_content">
-                        <div class="tag_cate">
-                          <a href="#">Ring</a>
-                          <a href="#">Necklace</a>
-                        </div>
-                        <h3><a href="#">Bracelet</a></h3>
-                        <div class="price_box">
-                          <span class="old_price">Rs. 75654</span>
-                          <span class="current_price">Rs. 74015</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Sao chép tương tự cho sản phẩm 2, 3, 4 -->
-                  <div class="col-lg-3 col-md-4 col-sm-6"> ... </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6"> ... </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6"> ... </div>
-                </div>
-              </div>
-            </div>
           </div>
     <!-- modal section starts -->
     <div class="modal fade" id="modal_box" tabindex="-1" role="dialog" aria-hidden="true">
@@ -101,7 +90,7 @@
                                   </div>
                                   <div class="modal_add_to_cart mb-15">
                                       <form action="#">
-                                          <input type="number" min="0" max="100" step="1">
+                                          <input type="number" id="myInput" min="1" max="100" step="1">
                                           <button type="submit" id="order_button">Đặt Hàng</button>
                                       </form>
                                   </div>
@@ -119,4 +108,5 @@
   </div>
 </section> 
 <script src="{%static 'app/js/product.js'%}"></script>
+<script src="{%static 'app/js/cart.js'%}"></script>
 {% endblock %}
