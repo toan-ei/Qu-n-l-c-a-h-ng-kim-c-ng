@@ -4,65 +4,106 @@
 {% block title %}Thanh Toán{% endblock %}
 
 {% block thanhtoan %}
-<div class="checkout">
+<div class="checkout py-5">
     <div class="container">
-        <h1>Thông tin đặt hàng</h1>
-        <div class="product-info">
-            {% for item in order_items %}
-            <div class="product">
-                <img src="{% static item.image %}" alt="{{ item.product_name }}" class="product-image">
-                <div>
-                    <p><strong>{{ item.product_name }}</strong></p>
-                    <p>Mã: {{ item.product_code|default:"N/A" }}</p>
-                    <p>Giá: <strong>{{ item.product_price|intcomma }} VNĐ</strong></p>
-                    <label>Số lượng:
-                        <input type="number" value="{{ item.quantity }}" min="1" readonly>
-                    </label>
+        <h1 class="mb-4 text-center text-primary">Thông tin đặt hàng</h1>
+
+        <div class="row">
+            <!-- Product Info -->
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm animate__animated animate__fadeInLeft">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img id="thanhToanImage" src="" alt="" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><strong id="thanhToanName"></strong></h5>
+                                <p class="card-text text-danger"><strong id="thanhToanPrice"></strong></p>
+                                <label>Số lượng:
+                                    <input id="thanhToanSoLuong" type="number" value="" min="1" readonly class="form-control w-50 mt-1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {% endfor %}
+
+            <!-- Order Summary -->
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm animate__animated animate__fadeInRight">
+                    <div class="card-body">
+                        <h5 class="card-title">Tổng tiền</h5>
+                        <p class="card-text"><strong><span id="total-price"></span></strong></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="summary">
-            <p><strong>Tổng tiền: <span id="total-price">{{ total_price|intcomma }} VNĐ</span></strong></p>
-        </div>
 
-        <form id="payment-form" method="post" action="{% url 'checkout_submit' %}">
-            {% csrf_token %}
-            <h2>Thông tin người mua</h2>
-            <label>
-                <input type="radio" name="gender" value="Anh" checked> Anh
-                <input type="radio" name="gender" value="Chị"> Chị
-            </label>
-            <input type="text" name="full_name" placeholder="Họ và tên" required>
-            <input type="text" name="phone_number" placeholder="Số điện thoại" required>
-            <input type="email" name="email" placeholder="Email">
-            <input type="date" name="birth_date">
+        <!-- Payment Form -->
+        <form id="payment-form" method="post" action="{% url 'checkout_submit' %}" class="animate__animated animate__fadeInUp">
+            <h2 class="text-primary">Thông tin người mua</h2>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label d-block">Giới tính:</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" value="Anh" checked>
+                        <label class="form-check-label">Anh</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" value="Chị">
+                        <label class="form-check-label">Chị</label>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Hình thức nhận hàng</h2>
-            <label>
-                <input type="radio" name="delivery_method" value="delivery" checked> Giao hàng tận nơi
-            </label>
-            <label>
-                <input type="radio" name="delivery_method" value="pickup"> Nhận tại cửa hàng
-            </label>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="text" name="full_name" placeholder="Họ và tên" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="phone_number" placeholder="Số điện thoại" class="form-control" required>
+                </div>
+            </div>
 
-            <select name="province" required>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="email" name="email" placeholder="Email" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <input type="date" name="birth_date" class="form-control">
+                </div>
+            </div>
+
+            <h2 class="text-primary">Hình thức nhận hàng</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="delivery_method" value="delivery" checked>
+                <label class="form-check-label">Giao hàng tận nơi</label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="delivery_method" value="pickup">
+                <label class="form-check-label">Nhận tại cửa hàng</label>
+            </div>
+
+            <select name="province" class="form-select mb-3" required>
                 <option value="" disabled selected>Chọn tỉnh/thành</option>
                 <option value="hcm">TP. Hồ Chí Minh</option>
                 <option value="hn">Hà Nội</option>
             </select>
-            <input type="text" name="address" placeholder="Địa chỉ cụ thể">
 
-            <h2>Phương thức thanh toán</h2>
-            <label>
-                <input type="radio" name="payment_method" value="cod" checked> Thanh toán tiền mặt khi nhận hàng (COD)
-            </label>
+            <input type="text" name="address" placeholder="Địa chỉ cụ thể" class="form-control mb-3">
 
-            <textarea name="notes" placeholder="Ghi chú đơn hàng"></textarea>
-            <button type="submit">Đặt hàng</button>
+            <h2 class="text-primary">Phương thức thanh toán</h2>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="payment_method" value="cod" checked>
+                <label class="form-check-label">Thanh toán tiền mặt khi nhận hàng (COD)</label>
+            </div>
+
+            <textarea name="notes" placeholder="Ghi chú đơn hàng" class="form-control mb-3"></textarea>
+
+            <button type="submit" class="btn btn-primary w-100">Đặt hàng</button>
         </form>
     </div>
 </div>
-
+<script src="{%static 'app/js/thanhToan.js'%}"></script>
 {% endblock %}
