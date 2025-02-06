@@ -6,41 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (storedData && inputValue) {
         const product = JSON.parse(storedData);
         renderThanhToan(product, inputValue);
-<<<<<<< HEAD
-        // Nếu cần, xóa dữ liệu sau khi sử dụng
-        localStorage.removeItem('productData');
-        localStorage.removeItem('inputValue');
-    }
-});
-
-=======
         updateMiniCart(product, inputValue); // Cập nhật mini cart
     }
 });
 
 // Cập nhật dữ liệu hiển thị trong thanh toán
->>>>>>> c087a4d3fb032f953295ecc5a1bb22c47b6656ab
 function renderThanhToan(product, inputValue) {
     const thanhToanName = document.getElementById('thanhToanName');
     const thanhToanPrice = document.getElementById('thanhToanPrice');
     const thanhToanSoLuong = document.getElementById('thanhToanSoLuong');
     const productImage = document.getElementById('thanhToanImage');
-<<<<<<< HEAD
-
-    if (thanhToanName && thanhToanPrice && thanhToanSoLuong && productImage) {
-=======
     const totalPriceElement = document.getElementById('total-price');
 
     if (thanhToanName && thanhToanPrice && thanhToanSoLuong && productImage && totalPriceElement) {
         // Cập nhật thông tin sản phẩm và số lượng
->>>>>>> c087a4d3fb032f953295ecc5a1bb22c47b6656ab
         thanhToanName.textContent = product.data.product_name;
         thanhToanPrice.textContent = `${parseFloat(product.data.product_price).toLocaleString()} VND`;
         thanhToanSoLuong.value = inputValue;
         productImage.src = product.data.product_image_first;
         productImage.alt = product.data.product_name;
-<<<<<<< HEAD
-=======
 
         // Tính tổng tiền
         const totalPrice = parseFloat(product.data.product_price) * inputValue;
@@ -56,13 +40,10 @@ function renderThanhToan(product, inputValue) {
                 totalPriceElement.textContent = `${newTotalPrice.toLocaleString()} VND`;
             }
         });
->>>>>>> c087a4d3fb032f953295ecc5a1bb22c47b6656ab
     } else {
         console.error('Không tìm thấy phần tử thanh toán.');
     }
 }
-<<<<<<< HEAD
-=======
 
 // Cập nhật mini cart với sản phẩm và tổng tiền
 function updateMiniCart(product, inputValue) {
@@ -108,4 +89,3 @@ function updateMiniCart(product, inputValue) {
         miniCartTotal.textContent = '0 VND';
     });
 }
->>>>>>> c087a4d3fb032f953295ecc5a1bb22c47b6656ab

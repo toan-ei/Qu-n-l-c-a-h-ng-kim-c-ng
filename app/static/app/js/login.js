@@ -96,8 +96,8 @@ function loginUser(data){
     })
     .then(function(responseData){
         console.log( responseData);
-        localStorage.setItem('username', responseData.data.username);
-        window.location.href = '/sanpham';
+        localStorage.setItem('username', responseData.user.username);
+        window.location.href = '/';
     })
     .catch(function(error){
         alert('tài khoản hoặc mật khẩu sai');

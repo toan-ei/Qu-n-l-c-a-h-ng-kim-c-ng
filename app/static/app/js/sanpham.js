@@ -24,17 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Lưu dữ liệu sản phẩm và số lượng vào localStorage
                 localStorage.setItem('productData', JSON.stringify(data));
                 localStorage.setItem('inputValue', inputValue);
-<<<<<<< HEAD
-                // Chuyển hướng sang trang thanhToan.html
-                window.location.href = '/thanhtoan';
-=======
                 
                 // Hiển thị thông báo "Đặt hàng thành công"
                 alert('Đặt hàng thành công!');
                 
                 // Cập nhật mini cart ngay lập tức
                 updateMiniCart(data, inputValue);
->>>>>>> c087a4d3fb032f953295ecc5a1bb22c47b6656ab
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -42,8 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-<<<<<<< HEAD
-=======
 // Hàm cập nhật mini cart
 function updateMiniCart(product, inputValue) {
     const miniCartItems = document.getElementById('miniCartItems');
@@ -88,4 +81,3 @@ function updateMiniCart(product, inputValue) {
         miniCartTotal.textContent = '0 VND';
     });
 }
->>>>>>> c087a4d3fb032f953295ecc5a1bb22c47b6656ab
