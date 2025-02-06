@@ -3,9 +3,9 @@ from app.models import User, Product, Order, OrderItem, Payment, Warranty, Promo
 from django.contrib.auth.hashers import make_password
 
 class UserSerializer(serializers.ModelSerializer):
-    class Meta:
+    class Meta(object):
         model = User
-        fields = '__all__'
+        fields = ['user_id', 'username', 'password', 'email']
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
