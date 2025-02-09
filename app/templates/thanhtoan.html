@@ -9,35 +9,23 @@
         <h1 class="mb-4 text-center text-primary">Thông tin đặt hàng</h1>
 
         <div class="row">
-            <!-- Product Info -->
+            <!-- Phần hiển thị sản phẩm được chọn (không cho chỉnh sửa số lượng) -->
             <div class="col-md-6">
-                <div class="card mb-4 shadow-sm animate__animated animate__fadeInLeft">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img id="thanhToanImage" src="" alt="" class="img-fluid rounded-start">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><strong id="thanhToanName"></strong></h5>
-                                <p class="card-text text-danger"><strong id="thanhToanPrice"></strong></p>
-                                <label>Số lượng:
-                                    <input id="thanhToanSoLuong" type="number" value="" min="1" readonly class="form-control w-50 mt-1">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                <div id="thanhToanProducts">
+                    <!-- Các sản phẩm được chọn sẽ được render vào đây bởi JavaScript -->
                 </div>
             </div>
 
-           <!-- Order Summary -->
-<div class="col-md-6">
-    <div class="card mb-4 shadow-sm animate__animated animate__fadeInRight">
-        <div class="card-body">
-            <h5 class="card-title">Tổng tiền</h5>
-            <p class="card-text"><strong><span id="total-price"></span></strong></p>
+            <!-- Order Summary -->
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm animate__animated animate__fadeInRight">
+                    <div class="card-body">
+                        <h5 class="card-title">Tổng tiền</h5>
+                        <p class="card-text"><strong><span id="total-price"></span></strong></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <!-- Payment Form -->
         <form id="payment-form" method="post" action="{% url 'checkout_submit' %}" class="animate__animated animate__fadeInUp">
@@ -104,5 +92,5 @@
         </form>
     </div>
 </div>
-<script src="{%static 'app/js/thanhToan.js'%}"></script>
+<script src="{% static 'app/js/thanhToan.js' %}"></script>
 {% endblock %}

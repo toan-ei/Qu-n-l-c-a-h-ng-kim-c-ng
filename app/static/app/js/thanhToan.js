@@ -1,91 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Lấy dữ liệu đã lưu từ localStorage
-    const storedData = localStorage.getItem('productData');
-    const inputValue = localStorage.getItem('inputValue');
+    // Lấy giỏ hàng từ localStorage (dùng key "cart")
+    const storedData = localStorage.getItem('cart');
+    const cartItems = storedData ? JSON.parse(storedData) : [];
 
-    if (storedData && inputValue) {
-        const product = JSON.parse(storedData);
-        renderThanhToan(product, inputValue);
-        updateMiniCart(product, inputValue); // Cập nhật mini cart
-    }
+    // Lọc ra các sản phẩm đã được chọn (có thuộc tính checked === true)
+    const selectedItems = cartItems.filter(item => item.checked);
+
+    renderThanhToan(selectedItems);
 });
 
-// Cập nhật dữ liệu hiển thị trong thanh toán
-function renderThanhToan(product, inputValue) {
-    const thanhToanName = document.getElementById('thanhToanName');
-    const thanhToanPrice = document.getElementById('thanhToanPrice');
-    const thanhToanSoLuong = document.getElementById('thanhToanSoLuong');
-    const productImage = document.getElementById('thanhToanImage');
+function renderThanhToan(products) {
+    const productsContainer = document.getElementById('thanhToanProducts');
     const totalPriceElement = document.getElementById('total-price');
 
-    if (thanhToanName && thanhToanPrice && thanhToanSoLuong && productImage && totalPriceElement) {
-        // Cập nhật thông tin sản phẩm và số lượng
-        thanhToanName.textContent = product.data.product_name;
-        thanhToanPrice.textContent = `${parseFloat(product.data.product_price).toLocaleString()} VND`;
-        thanhToanSoLuong.value = inputValue;
-        productImage.src = product.data.product_image_first;
-        productImage.alt = product.data.product_name;
-
-        // Tính tổng tiền
-        const totalPrice = parseFloat(product.data.product_price) * inputValue;
-        totalPriceElement.textContent = `${totalPrice.toLocaleString()} VND`;
-
-        // Lắng nghe sự thay đổi số lượng và cập nhật vào localStorage
-        thanhToanSoLuong.addEventListener('input', (e) => {
-            const newQuantity = e.target.value;
-            if (newQuantity && newQuantity > 0) {
-                localStorage.setItem('inputValue', newQuantity);
-                // Cập nhật lại tổng tiền
-                const newTotalPrice = parseFloat(product.data.product_price) * newQuantity;
-                totalPriceElement.textContent = `${newTotalPrice.toLocaleString()} VND`;
-            }
-        });
-    } else {
-        console.error('Không tìm thấy phần tử thanh toán.');
+    if (!productsContainer || !totalPriceElement) {
+        console.error('Không tìm thấy phần tử hiển thị thanh toán.');
+        return;
     }
-}
 
-// Cập nhật mini cart với sản phẩm và tổng tiền
-function updateMiniCart(product, inputValue) {
-    const miniCartItems = document.getElementById('miniCartItems');
-    const miniCartTotal = document.getElementById('miniCartTotal');
+    // Xóa nội dung cũ
+    productsContainer.innerHTML = '';
+    let totalAmount = 0;
 
-    // Xóa các sản phẩm cũ trong mini cart
-    miniCartItems.innerHTML = '';
+    if (products.length === 0) {
+        productsContainer.innerHTML = '<p>Bạn chưa chọn sản phẩm nào để thanh toán.</p>';
+        totalPriceElement.textContent = '0 VND';
+        return;
+    }
 
-    // Thêm sản phẩm vào mini cart
-    const cartItem = document.createElement('div');
-    cartItem.classList.add('cart_item');
-    cartItem.innerHTML = `
-        <div class="cart_img">
-            <a href="#"><img src="${product.data.product_image_first}" alt="${product.data.product_name}"></a>
-        </div>
-        <div class="cart_info">
-            <a href="#">${product.data.product_name}</a>
-            <span class="quantity">Qty : ${inputValue}</span>
-            <span class="price_cart">${(product.data.product_price * inputValue).toLocaleString()} VND</span>
-        </div>
-        <div class="cart_remove">
-            <a href="javascript:void(0)"><i class="ion-android-close"></i></a>
-        </div>
-    `;
-    miniCartItems.appendChild(cartItem);
+    products.forEach((product, index) => {
+        const itemTotal = product.price * product.quantity;
+        totalAmount += itemTotal;
 
-    // Tính toán và cập nhật tổng tiền
-    const total = product.data.product_price * inputValue;
-    miniCartTotal.textContent = `${total.toLocaleString()} VND`;
-
-    // Lắng nghe sự kiện xóa sản phẩm trong mini cart
-    const removeButton = cartItem.querySelector('.cart_remove a');
-    removeButton.addEventListener('click', () => {
-        // Xóa sản phẩm khỏi mini cart
-        miniCartItems.removeChild(cartItem);
-
-        // Xóa dữ liệu sản phẩm và số lượng khỏi localStorage
-        localStorage.removeItem('productData');
-        localStorage.removeItem('inputValue');
-
-        // Cập nhật lại tổng tiền trong mini cart
-        miniCartTotal.textContent = '0 VND';
+        // Render thông tin sản phẩm theo giao diện ban đầu
+        // Lưu ý: số lượng chỉ hiển thị dưới dạng văn bản, không có input tăng giảm
+        const card = document.createElement('div');
+        card.className = "card mb-4 shadow-sm animate__animated animate__fadeInLeft";
+        card.innerHTML = `
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="${product.image}" alt="${product.name}" class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>${product.name}</strong></h5>
+                        <p class="card-text text-danger"><strong>${product.price.toLocaleString()} VND</strong></p>
+                        <p>Số lượng: ${product.quantity}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        productsContainer.appendChild(card);
     });
+
+    totalPriceElement.textContent = `${totalAmount.toLocaleString()} VND`;
 }
