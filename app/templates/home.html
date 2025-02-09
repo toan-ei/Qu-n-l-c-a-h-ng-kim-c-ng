@@ -113,667 +113,137 @@
                     </div>
                 </section>
                 <!-- banner full width end -->
-        <!-- product section area starts  -->
-        <section class="product_section p_section1 product_black_section bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section_title">
-                            <h2>Sản phẩm bán chạy nhất"</h2>
+<!-- product section area starts -->
+<section class="product_section p_section1 product_black_section bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section_title">
+                    <h2>Sản phẩm bán chạy nhất</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="product_area">
+                    <div class="product_container">
+                        <div class="row list_product">
+                            {% for product in products %}
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="single_product">
+                                    <div class="product_thumb" data-id="{{ product.product_id }}">
+                                        <a href="#" class="primary_img">
+                                            <img src="{{ product.product_image_first }}" alt="product1">
+                                        </a>
+                                        <a href="#" class="secondary_img">
+                                            <img src="{{ product.product_image_second }}" alt="product2">
+                                        </a>
+                                        <div class="quick_button">
+                                            <a href="#" class="quick_view_button" data-toggle="modal" data-target="#modal_box"
+                                                data-id="{{ product.product_id }}" 
+                                                data-name="{{ product.product_name }}" 
+                                                data-price="{{ product.product_price }}" 
+                                                data-description="{{ product.product_description }}" 
+                                                data-imagefirst="{{ product.product_image_first }}">
+                                                Xem Nhanh
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product_content">
+                                        <div class="tag_cate">
+                                            <a class="product_description" href="#">{{ product.product_description }}</a>
+                                        </div>
+                                        <h3><a href="#">{{ product.product_name }}</a></h3>
+                                        <div class="price_box">
+                                            <span class="current_price">{{ product.product_price }} VND</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Giỏ hàng (Cart Item) đặt trong vòng lặp -->
+                            <div class="cart_item">
+                                <div class="cart_checkbox">
+                                    <input type="checkbox" class="cart_select" data-index="{{ forloop.counter0 }}">
+                                </div>
+                                <div class="cart_img">
+                                    <a href="#"><img src="{{ product.product_image_first }}" alt="{{ product.product_name }}"></a>
+                                </div>
+                                <div class="cart_info">
+                                    <a href="#">{{ product.product_name }}</a>
+                                    <div class="quantity_controls">
+                                        <button class="decrease_quantity" data-index="{{ forloop.counter0 }}">-</button>
+                                        <span class="product_quantity">1</span>
+                                        <button class="increase_quantity" data-index="{{ forloop.counter0 }}">+</button>
+                                    </div>
+                                    <span class="price_cart">{{ product.product_price }} VND</span>
+                                </div>
+                                <div class="cart_remove">
+                                    <a href="javascript:void(0)" class="remove_item" data-index="{{ forloop.counter0 }}">
+                                        <i class="ion-android-close"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="product-area">
-                            <div class="product_container bottom">
-                                <div class="custom-row product_row1">
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product1.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.1.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem
-                                                        Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Nhẫn, Dây chuyền</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">45.654.000</span>
-                                                    <span class="current_price">44.015.000</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương và Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Thêm
-                                                                    vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product2.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.2.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem
-                                                        Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Nhẫn, Dây chuyền</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">45.654.000</span>
-                                                    <span class="current_price">44.015.000</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương và Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Thêm 
-                                                                vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product3.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.3.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem
-                                                        Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Nhẫn, Dây chuyền</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">45.654.000</span>
-                                                    <span class="current_price">44.015.000</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương và Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Add
-                                                                    to Cart</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product4.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.4.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Quick
-                                                        View</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Ring, Necklace,</a>
-                                                    <a href="#">Earrings</a>
-                                                </div>
-                                                <h3><a href="#">Necklace Set</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">Rs. 45654</span>
-                                                    <span class="current_price">Rs. 44015</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương vàvà Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Thêm
-                                                                    vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product5.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.5.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem 
-                                                        Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Nhẫn, Dây chuyền</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">45.654.000</span>
-                                                    <span class="current_price">44.015.000</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là chiếc nhẫn vàng có kim cương vàvà Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">thêm 
-                                                                    vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product6.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.6.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem 
-                                                        Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Nhẫn, Dây chuyền</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">45.654.000</span>
-                                                    <span class="current_price">44.015.000</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương và Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Thêm 
-                                                                    vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product7.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.7.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem 
-                                                        Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Nhẫn, Dây chuyền</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">45.654.000</span>
-                                                    <span class="current_price">Rs. 44.015.000</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương và Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Thêm 
-                                                                    vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product8.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.8.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem 
-                                                        Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Nhẫn, Dây chuyền</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">.
-  .000                                                  <span class="old_price">45.654.000</span>
-                                                    <span class="current_price">44.015.000</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương và Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Thêm 
-                                                                    vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product9.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.9.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem 
-                                                    Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Nhẫn, Dây chuyền,</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">Rs. 45654</span>
-                                                    <span class="current_price">Rs. 44015</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương và Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Thêm 
-                                                                    vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product10.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.10.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem 
-                                                    Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <a href="#">Nhẫn, Dây chuyền,</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">Rs. 45654</span>
-                                                    <span class="current_price">Rs. 44015</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương và Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Thêm 
-                                                                    vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-col-5">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="#" class="primary_img"><img src="{% static 'app/image/product11.jpg'%}"
-                                                        alt="product1"></a>
-                                                <a href="#" class="secondary_img"><img src="{% static 'app/image/product1.11.jpg'%}"
-                                                        alt="product1"></a>
-                                                <div class="quick_button">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                        data-placement="top" data-original-title="quick view">Xem 
-                                                    Nhanh</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <div class="tag_cate">
-                                                    <!-- make this corection in all products above -->
-                                                    <a href="#">Nhẫn, Dây chuyền,</a>
-                                                    <a href="#">Nhẫn tai</a>
-                                                </div>
-                                                <h3><a href="#">Bộ dây chuyền</a></h3>
-                                                <div class="price_box">
-                                                    <span class="old_price">Rs. 45654</span>
-                                                    <span class="current_price">Rs. 44015</span>
-                                                </div>
-                                                <div class="product_hover">
-                                                    <div class="product_ratings">
-                                                        <ul>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i class="ion-ios-star-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product_desc">
-                                                        <p>Đây là một chiếc nhẫn vàng có kim cương và Lorem ipsum
-                                                            dolor sit amet.</p>
-                                                    </div>
-                                                    <div class="action_links">
-                                                        <ul>
-                                                            <li><a href="#" data-placement="top" title="Add to Wishlist"
-                                                                    data-toggle="tooltip"><span
-                                                                        class="ion-heart"></span></a></li>
-                                                            <li class="add_to_cart"><a href="#" title="Add to Cart">Thêm 
-                                                                    vào giỏ hàng</a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="ion-ios-settings-strong"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Modal section -->
+<div class="modal fade" id="modal_box" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal_body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <div class="modal_tab">
+                                <div class="tab-content product-details-large">
+                                    <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                                        <div class="modal_tab_img">
+                                            <a href="#"><img src="" alt="" id="modalImage"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12">
+                            <div class="modal_right">
+                                <div class="modal_title mb-10">
+                                    <h2 id="modalName"></h2>
+                                </div>
+                                <div class="modal_price mb-10">
+                                    <span class="new_price" id="modalPrice"></span>
+                                </div>
+                                <div class="see_all">
+                                    <a href="#">Xem tất cả tính năng</a>
+                                </div>
+                                <div class="modal_add_to_cart mb-15">
+                                    <form action="#">
+                                        <input type="number" id="myInput" min="1" max="100" step="1">
+                                        <button type="submit" id="order_button">Đặt Hàng</button>
+                                    </form>
+                                </div>
+                                <div class="modal_description mb-15">
+                                    <p id="modalDescription"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- product section area ends  -->
+        </div>
+    </div>
+</div>   
+<!-- Modal section ends -->
+
+<script src="{% static 'app/js/product.js' %}"></script>
+<!-- Product section area ends -->
                 <!-- instagram section starts -->
                 <div class="instagram">
                     <div class="container-fluid">

@@ -45,10 +45,10 @@
                             <div class="top_right text-right">
                                 <ul>
                                     <li class="top_links">  
-                                        <a class='user_name' href="http://127.0.0.1:8000/login">đăng nhập <i class="ion-chevron-down"></i></a>
+                                        <a class='user_name' href="#">đăng nhập <i class="ion-chevron-down"></i></a>
                                         <ul class="dropdown_links">
-                                            <li><a href="#">đăng xuất</a></li>
-                                            <li><a href="#">giỏ hàng</a></li>
+                                            <li><a href="{% url 'login'%}">đăng xuất</a></li>
+                                            <li><a href="{% url 'thanhtoan'%}">thanh toán</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -70,7 +70,7 @@
                                     <img src="images/icon/icon_phone.png" alt="">
                                 </div>
                                 <div class="contact_box">
-                                    <p>Inquiry / Helpline : <a href="tel: 1234567894">1234567894</a></p>
+                                    <p>Liên lạc hỗ trợ : <a href="tel: 1234567894">1234567894</a></p>
                                 </div>
                             </div>
                         </div>
@@ -92,33 +92,30 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="wishlist_btn">
-                                    <a href="#"><i class="ion-heart"></i></a>
-                                </div>
+                               
                                 <div class="cart_link">
-                                    <a href="#"><i class="ion-android-cart"></i><span class="cart_text_quantity">Rs.
-                                            67,598</span><i class="ion-chevron-down"></i></a>
-                                    <span class="cart_quantity">2</span>
+                                    <a href="#"><i class="ion-android-cart"></i><span class="cart_text_quantity"></span><i class="ion-chevron-down"></i></a>
+                                    <span class="cart_quantity"></span>
 <!-- mini cart -->
 <div class="mini_cart">
     <div class="cart_close">
         <div class="cart_text">
-            <h3>cart</h3>
+            <h3>Giỏ hàng</h3>
         </div>
         <div class="mini_cart_close">
             <a href="javascript:void(0)"><i class="ion-android-close"></i></a>
         </div>
     </div>
-    <div class="cart_item" id="miniCartItems">
-        <!-- Sản phẩm sẽ được hiển thị ở đây -->
+    <div id="miniCartItems">
+        <!-- Sản phẩm sẽ được thêm vào đây -->
     </div>
     <div class="cart_total">
-        <span>Subtotal : </span>
-        <span id="miniCartTotal">0</span>
+        <span>Tổng cộng: </span>
+        <span id="miniCartTotal">0 VND</span>
     </div>
     <div class="mini_cart_footer">
         <div class="cart_button checkout">
-            <a href="{% url 'thanhtoan' %}" class="active">Checkout</a>
+            <a href="{% url 'thanhtoan' %}" class="active">Thanh toán</a>
         </div>
     </div>
 </div>
