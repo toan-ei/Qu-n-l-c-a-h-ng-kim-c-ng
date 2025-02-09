@@ -542,6 +542,57 @@ ul {
 .header_black .cart_link > a i.ion-android-cart {
   border-right: 1px solid #2d2d2d;
 }
+.cart_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.cart_checkbox {
+  flex: 0 0 5%;
+}
+
+.cart_img {
+  flex: 0 0 15%;
+}
+
+.cart_img img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.cart_info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.quantity_controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity_controls button {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.quantity_controls span {
+  padding: 0 10px;
+}
+
+.cart_remove {
+  flex: 0 0 5%;
+  text-align: center;
+}
+
 
 .mini_cart {
   position: fixed;
