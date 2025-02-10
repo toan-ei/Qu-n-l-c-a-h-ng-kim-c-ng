@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Giới thiệu{% endblock %}
+
+{% block gioithieu %}
+<div class="about">
+  <div class="hero">
+      <h2>Discover the World's Finest Diamonds</h2>
+  </div>
+  <div class="container">
+      <section class="about" id="about">
+          <h2>Về Chúng Tôi</h2>
+          <p>
+            Chào mừng bạn đến với cửa hàng kim cương trực tuyến của chúng tôi!
+
+            Chúng tôi tự hào mang đến cho bạn bộ sưu tập kim cương cao cấp, hoàn hảo cho mọi dịp đặc biệt. Sứ mệnh của chúng tôi là cung cấp những viên kim cương tinh xảo với mức giá cạnh tranh nhất, giúp bạn dễ dàng sở hữu món trang sức lấp lánh, sang trọng.
+            
+            Dù bạn đang tìm kiếm một chiếc nhẫn cầu hôn đầy ý nghĩa, một món quà tinh tế dành tặng người thân yêu hay đơn giản là muốn tự thưởng cho bản thân, chúng tôi luôn sẵn sàng đáp ứng mọi nhu cầu với những lựa chọn hoàn mỹ nhất.
+            
+            Hãy để những viên kim cương rực rỡ của chúng tôi tôn vinh vẻ đẹp và giá trị đích thực của bạn!
+          </p>
+      </section>
+      
+      <!-- Phần sản phẩm: sẽ được render bởi JavaScript -->
+      <section class="products" id="products">
+          <h2>Sản Phẩm Của Chúng Tôi</h2>
+          <!-- Khối chứa danh sách sản phẩm -->
+          <div id="gioithieuProductList" class="product-list">
+              <!-- Sản phẩm sẽ được chèn vào đây qua gioithieu.js -->
+          </div>
+      </section>
+      
+      <section class="contact" id="contact">
+          <h2>Liên Hệ Với Chúng Tôi</h2>
+          <p>
+              Nếu bạn có bất kỳ câu hỏi nào hoặc muốn biết thêm thông tin về sản phẩm của chúng tôi, vui lòng liên hệ với chúng tôi.
+              Chúng tôi luôn sẵn sàng giúp bạn tìm được viên kim cương hoàn hảo nhất.
+          </p>
+          <form>
+              <input name="name" placeholder="Tên của bạn" required="" type="text"/>
+              <input name="email" placeholder="Email của bạn" required="" type="email"/>
+              <textarea name="message" placeholder="Tin nhắn của bạn" required="" rows="5"></textarea>
+              <button type="submit">Gửi tin nhắn</button>
+          </form>
+      </section>
+  </div>
+</div>
+
+<!-- Bao gồm file JS để hiển thị sản phẩm và cập nhật giỏ hàng -->
+<script src="{% static 'app/js/gioithieu.js' %}"></script>
+{% endblock %}

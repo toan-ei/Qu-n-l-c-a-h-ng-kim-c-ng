@@ -9,6 +9,7 @@
         <h1 class="mb-4 text-center text-primary">Thông tin đặt hàng</h1>
 
         <div class="row">
+<<<<<<< HEAD
             <!-- Product Info -->
             <div class="col-md-6">
                 <div class="card mb-4 shadow-sm animate__animated animate__fadeInLeft">
@@ -26,6 +27,12 @@
                             </div>
                         </div>
                     </div>
+=======
+            <!-- Phần hiển thị sản phẩm được chọn (không cho chỉnh sửa số lượng) -->
+            <div class="col-md-6">
+                <div id="thanhToanProducts">
+                    <!-- Các sản phẩm được chọn sẽ được render vào đây bởi JavaScript -->
+>>>>>>> 71e366c5a590c4f0c32f5bb2dfa67977ea180740
                 </div>
             </div>
 
@@ -34,7 +41,11 @@
                 <div class="card mb-4 shadow-sm animate__animated animate__fadeInRight">
                     <div class="card-body">
                         <h5 class="card-title">Tổng tiền</h5>
+<<<<<<< HEAD
                         <p class="card-text"><strong><span id="total-price"> VND</span></strong></p>
+=======
+                        <p class="card-text"><strong><span id="total-price"></span></strong></p>
+>>>>>>> 71e366c5a590c4f0c32f5bb2dfa67977ea180740
                     </div>
                 </div>
             </div>
@@ -101,10 +112,18 @@
 
             <textarea name="notes" placeholder="Ghi chú đơn hàng" class="form-control mb-3"></textarea>
 
+<<<<<<< HEAD
             <button id="order" class="btn btn-primary w-100">Đặt hàng</button>
         </form>
     </div>
 </div>
 <script src="{%static 'app/js/thanhToan.js'%}"></script>
 <script src="{%static 'app/js/transaction.js'%}"></script>
+=======
+            <button type="submit" class="btn btn-primary w-100">Đặt hàng</button>
+        </form>
+    </div>
+</div>
+<script src="{% static 'app/js/thanhToan.js' %}"></script>
+>>>>>>> 71e366c5a590c4f0c32f5bb2dfa67977ea180740
 {% endblock %}
