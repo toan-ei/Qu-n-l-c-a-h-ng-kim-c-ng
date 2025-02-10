@@ -45,7 +45,7 @@
                             <div class="top_right text-right">
                                 <ul>
                                     <li class="top_links">  
-                                        <a class='user_name' href="#">đăng nhập <i class="ion-chevron-down"></i></a>
+                                        <a class='user_name' href="{% url 'login'%}">đăng nhập <i class="ion-chevron-down"></i></a>
                                         <ul class="dropdown_links">
                                             <li><a href="{% url 'login'%}">đăng xuất</a></li>
                                             <li><a href="{% url 'thanhtoan'%}">thanh toán</a></li>
@@ -143,52 +143,12 @@
                                     <nav>
                                         <ul>
                                             <li class="active">
-                                                <a href="#">Trang Chủ <i class="ion-chevron-down"></i></a>
-                                                <ul class="sub_menu">
-                                                    <li><a href="#">Trang Chủ Chính</a></li>
-                                                    <li><a href="#">Bộ Sưu Tập Nổi Bật</a></li>
-                                                    <li><a href="#">Ưu Đãi Đặc Biệt</a></li>
-                                                    <li><a href="#">Tin Tức</a></li>
-                                                </ul>
+                                                <a href="{% url 'home'%}">Trang Chủ</a>
                                             </li>
                                             <li>
-                                                <a href="#">Danh Mục Sản Phẩm <i class="ion-chevron-down"></i></a>
-                                                <ul class="mega_menu">
-                                                    <li>
-                                                        <a href="#">Kim Cương Cắt Mài</a>
-                                                        <ul>
-                                                            <li><a href="#">Nhẫn Kim Cương</a></li>
-                                                            <li><a href="#">Bông Tai Kim Cương</a></li>
-                                                            <li><a href="#">Dây Chuyền Kim Cương</a></li>
-                                                            <li><a href="#">Vòng Tay Kim Cương</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Kim Cương Thiên Nhiên</a>
-                                                        <ul>
-                                                            <li><a href="#">Kim Cương Thô</a></li>
-                                                            <li><a href="#">Kim Cương Màu</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Kim Loại Quý</a>
-                                                        <ul>
-                                                            <li><a href="#">Vàng</a></li>
-                                                            <li><a href="#">Bạch Kim</a></li>
-                                                            <li><a href="#">Bạc</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                                <a href="{% url 'sanpham'%}">Sản Phẩm</a>
                                             </li>
-                                            <li><a href="#">Giới Thiệu</a></li>
-                                            <li>
-                                                <a href="#">Bộ Sưu Tập Đặc Biệt <i class="ion-chevron-down"></i></a>
-                                                <ul class="sub_menu pages">
-                                                    <li><a href="#">Kim Cương Màu</a></li>
-                                                    <li><a href="#">Vàng Hồng</a></li>
-                                                    <li><a href="#">Quà Tặng Độc Quyền</a></li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="#">Giới Thiệu</a></li>                                    
                                             <li><a href="#">Liên Hệ</a></li>
                                         </ul>
                                     </nav>
@@ -222,10 +182,10 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-8">
                             <div class="widgets_container contact_us">
-                                <h3>About Ashirwaad</h3>
+                                <h3>Về Ashirwaad</h3>
                                 <div class="footer_contact">
-                                    <p>Address : </p>
-                                    <p>Phone : <a href="tel:(+91)888888885555">(+91)888888885555</a></p>
+                                    <p>Address(Địa chỉ) : </p>
+                                    <p>Phone(Điện thoại) : <a href="tel:(+91)888888885555">(+91)888888885555</a></p>
                                     <p>Email : jewlers@gmail.com</p>
                                     <ul>
                                         <li><a href="#"><i class="ion-social-facebook"></i></a></li>
@@ -239,37 +199,37 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-sm-4 col-6">
                             <div class="widgets_container widget_menu">
-                                <h3>Information</h3>
+                                <h3>Thông tin</h3>
                                 <div class="footer_menu">
                                     <ul>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                        <li><a href="#">Services</a></li>
-                                        <li><a href="#">Collection</a></li>
-                                        <li><a href="#">Portfolio</a></li>
+                                        <li><a href="#">Bài viết</a></li>
+                                        <li><a href="#">Liên hệ</a></li>
+                                        <li><a href="#">Dịch vụ</a></li>
+                                        <li><a href="#">Bộ sưu tập</a></li>
+                                        <li><a href="#">Danh mục đầu tư</a></li>
+                                        <li><a href="#">Về chúng tôi</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-6 col-sm-5 col-6">
                             <div class="widgets_container widget_menu">
-                                <h3>My Account</h3>
+                                <h3>Tài khoản của tôi</h3>
                                 <div class="footer_menu">
                                     <ul>
-                                        <li><a href="#">My Account</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                        <li><a href="#">Wishlist</a></li>
-                                        <li><a href="#">Portfolio</a></li>
-                                        <li><a href="#">Checkout</a></li>
-                                        <li><a href="#">Frequently Questions</a></li>
+                                        <li><a href="#">Tài khoản của tôi</a></li>
+                                        <li><a href="#">Liên hệ</a></li>
+                                        <li><a href="#">Danh sách yêu thích</a></li>
+                                        <li><a href="#">Bộ sưu tập</a></li>
+                                        <li><a href="#">Thanh toán</a></li>
+                                        <li><a href="#">Câu hỏi thường gặp</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-7">
                             <div class="widgets_container product_widget">
-                                <h3>Top Rated Products</h3>
+                                <h3>Sản phẩm được đánh giá cao nhất</h3>
                                 <div class="simple_product">
                                     <div class="simple_product_items">
                                         <div class="simple_product_thumb">
@@ -277,15 +237,14 @@
                                         </div>
                                         <div class="simple_product_content">
                                             <div class="tag_cate">
-                                                <a href="#">Women,</a>
-                                                <a href="#">Earrings</a>
+                                                <a href="#">Dây chuyền nữ</a>
                                             </div>
                                             <div class="product_name">
-                                                <h3><a href="#">Bracelet</a></h3>
+                                                <h3><a href="#">Dây chuyền</a></h3>
                                             </div>
                                             <div class="product_price">
-                                                <span class="old_price">Rs. 45612.54</span>
-                                                <span class="current_price">Rs. 41612.54</span>
+                                                <span class="old_price">4.561.254 đ</span>
+                                                <span class="current_price">4.161.254 đ</span>
                                             </div>
                                         </div>
                                     </div>
@@ -295,15 +254,14 @@
                                         </div>
                                         <div class="simple_product_content">
                                             <div class="tag_cate">
-                                                <a href="#">Women,</a>
-                                                <a href="#">Earrings</a>
+                                                <a href="#">Vòng tay nữ</a>
                                             </div>
                                             <div class="product_name">
-                                                <h3><a href="#">Ring</a></h3>
+                                                <h3><a href="#">Vòng tay</a></h3>
                                             </div>
                                             <div class="product_price">
-                                                <span class="old_price">Rs. 75612.54</span>
-                                                <span class="current_price">Rs. 71612.54</span>
+                                                <span class="old_price">7.561.254 đ</span>
+                                                <span class="current_price">7.161.254 đ</span>
                                             </div>
                                         </div>
                                     </div>
@@ -316,7 +274,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="copyright_area">
-                                <p>Copyright &copy; 2020 <a href="#">ashirwaad</a> All rights Reserved.</p>
+                                <p>Bảng quyền &cop; 2020 <a href="#">ashirwaad</a> Mọi quyền được bảo lưulưu.</p>
                                 <img src="images/icon/papyel2.png" alt="">
                             </div>
                         </div>
@@ -391,19 +349,19 @@
                             <div class="col-lg-7 col-md-7 col-sm-12">
                                 <div class="modal_right">
                                     <div class="modal_title mb-10">
-                                        <h2>Women's Necklace</h2>
+                                        <h2>Dây chuyền nữ</h2>
                                     </div>
                                     <div class="modal_price mb-10">
-                                        <span class="new_price">Rs. 51164</span>
-                                        <span class="old_price">Rs. 54164</span>
+                                        <span class="new_price">51.164.000 đ</span>
+                                        <span class="old_price">54.164.000 đ</span>
                                     </div>
                                     <div class="see_all">
-                                        <a href="#">See All Features</a>
+                                        <a href="#">Xem tất cả các tính năng</a>
                                     </div>
                                     <div class="modal_add_to_cart mb-15">
                                         <form action="#">
                                             <input type="number" min="0" max="100" step="1">
-                                            <button type="submit">Add To Cart</button>
+                                            <button type="submit">Thêm Vào Giỏ Hàng</button>
                                         </form>
                                     </div>
                                     <div class="modal_description mb-15">
