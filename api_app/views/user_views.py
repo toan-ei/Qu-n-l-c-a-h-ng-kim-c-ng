@@ -47,37 +47,14 @@ class UserApi(APIView):
 
 class loginUser(APIView):
     def post(self, request):
-<<<<<<< HEAD
-        username = request.data.get('username')
-        password = request.data.get('password')
-        if not username or not password:
-            return Response({
-                'message': 'Vui lòng cung cấp đầy đủ username và password'
-            }, status=status.HTTP_400_BAD_REQUEST)
-        try:
-            user = User.objects.get(username=username)
-        except User.DoesNotExist:
-            return Response({
-                'message': 'Tài khoản không tồn tại'
-            }, status=status.HTTP_404_NOT_FOUND)
-        if not user.check_password(request.data['password']):
-            return Response({
-                'message': 'Mật khẩu không chính xác'
-            }, status=status.HTTP_401_NOT_FOUND)
-=======
         user = get_object_or_404(User, username=request.data['username'])
         if not user.check_password(request.data['password']):
             return Response({
                 'message': 'không tìm thấy'
             }, status=status.HTTP_404_NOT_FOUND)
->>>>>>> 71e366c5a590c4f0c32f5bb2dfa67977ea180740
         token, created = Token.objects.get_or_create(user=user)
         serializer = UserSerializer(instance=user)
         return Response({
             "token": token.key,
-<<<<<<< HEAD
-            "user": serializer.data
-=======
                 "user": serializer.data
->>>>>>> 71e366c5a590c4f0c32f5bb2dfa67977ea180740
         })

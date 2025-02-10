@@ -44,11 +44,10 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="top_right text-right">
                                 <ul>
-                                    <li class="top_links">  
-                                        <a class='user_name' href="{% url 'login'%}">đăng nhập <i class="ion-chevron-down"></i></a>
-                                        <ul class="dropdown_links">
-                                            <li><a href="{% url 'login'%}">đăng xuất</a></li>
-                                            <li><a href="{% url 'thanhtoan'%}">thanh toán</a></li>
+                                    <li class="top_links">
+                                        <a id="userLink" class='user_name' href="http://127.0.0.1:8000/login">đăng nhập</a>
+                                        <ul id="dropdownLinks" class="dropdown_links" style="display: none;">
+                                            <li><a href="#" id="logoutLink">đăng xuất</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -150,6 +149,8 @@
                                             </li>
                                             <li><a href="{% url 'gioithieu'%}">Giới Thiệu</a></li>                                    
                                             <li><a href="{% url 'cauhoithuonggap'%}">Câu hỏi thường gặp</a></li>
+                                            <li><a href="{% url 'lichsugiaodich'%}">Lịch sử giao dịch</a></li>
+                                            <li><a href="{% url 'huongdanchonni'%}">Hướng Dẫn chọn ni</a></li>
                                         </ul>
                                     </nav>
                                 </div>

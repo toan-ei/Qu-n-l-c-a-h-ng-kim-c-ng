@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-<<<<<<< HEAD
-    const addTocart = document.getElementById('order_button');
-    if (addTocart) {
-        addTocart.addEventListener('click', (e) => {
-            const productId = addTocart.getAttribute('data-id');
-            const inputElement = document.getElementById('myInput');
-            const inputValue = inputElement ? inputElement.value : 0;
-=======
     const addToCartButton = document.getElementById('order_button');
     
     if (addToCartButton) {
@@ -14,36 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const productId = addToCartButton.getAttribute('data-id');
             const inputElement = document.getElementById('myInput');
             const inputValue = inputElement ? parseInt(inputElement.value) : 0;
->>>>>>> 71e366c5a590c4f0c32f5bb2dfa67977ea180740
             
             if (!inputValue || inputValue <= 0) {
                 alert('Vui lòng nhập số lượng hợp lệ!');
                 return;
             }
-<<<<<<< HEAD
-        
-            fetch(`http://127.0.0.1:8000/api/products/product/${productId}  `, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                console.log('soluong', inputValue);
-                // Lưu dữ liệu sản phẩm và số lượng vào localStorage
-                localStorage.setItem('productData', JSON.stringify(data));
-                localStorage.setItem('inputValue', inputValue);
-                // Chuyển hướng sang trang thanhToan.html
-                window.location.href = '/thanhtoan';
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        });
-    }
-=======
 
             fetch(`http://127.0.0.1:8000/api/products/product/${productId}`)
                 .then(response => response.json())
@@ -187,5 +154,4 @@ function updateMiniCart(cart) {
 document.addEventListener('DOMContentLoaded', () => {
     const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
     updateMiniCart(savedCart);
->>>>>>> 71e366c5a590c4f0c32f5bb2dfa67977ea180740
 });

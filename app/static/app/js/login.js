@@ -97,10 +97,7 @@ function loginUser(data){
     .then(function(responseData){
         console.log( responseData);
         localStorage.setItem('username', responseData.user.username);
-<<<<<<< HEAD
         localStorage.setItem('token', responseData.token);
-=======
->>>>>>> 71e366c5a590c4f0c32f5bb2dfa67977ea180740
         window.location.href = '/';
     })
     .catch(function(error){
