@@ -29,6 +29,8 @@ def kienthuc(request):
 def gioithieu(request):
     products = Product.objects.all()  # Lấy tất cả sản phẩm
     return render(request, 'gioithieu.html', {'products': products})
+def cauhoithuonggap(request):
+    return render(request, 'cauhoithuonggap.html')
 
 @login_required
 def addToCart(request, product_id):
