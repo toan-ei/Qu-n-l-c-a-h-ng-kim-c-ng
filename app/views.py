@@ -20,14 +20,15 @@ def sanpham(request):
     return render(request, 'sanpham.html')
 def loginPage(request):
     return render(request, 'login.html')
-def phieubaohanh(request):
-    return render(request, 'phieubaohanh.html')
 def phieutichdiem(request):
     return render(request, 'phieutichdiem.html')
 def lichsugiaodich(request):
     return render(request, 'lichsugiaodich.html')
 def kienthuc(request):
     return render(request, 'kienthuc.html')
+def gioithieu(request):
+    products = Product.objects.all()  # Lấy tất cả sản phẩm
+    return render(request, 'gioithieu.html', {'products': products})
 
 @login_required
 def addToCart(request, product_id):
