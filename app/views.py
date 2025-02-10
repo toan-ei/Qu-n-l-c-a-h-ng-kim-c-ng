@@ -35,6 +35,8 @@ def huongdanchonni(request):
     return render(request, 'huongdanchonni.html')
 def kienthucvekimcuong(request):
     return render(request, 'kienthucvekimcuong.html')
+def kienthucvetrangsuc(request):
+    return render(request, 'kienthucvetrangsuc.html')
 
 @login_required
 def addToCart(request, product_id):
