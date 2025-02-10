@@ -15,5 +15,6 @@ urlpatterns = [
     path('checkout/submit/', views.checkout_submit_view, name='checkout_submit'),
     path('gioithieu/', views.gioithieu, name='gioithieu'),
     path('cauhoithuonggap/', views.cauhoithuonggap, name='cauhoithuonggap'),
-
+    path('huongdanchonni/', views.huongdanchonni, name='huongdanchonni'),
+    path('kienthucvekimcuong/', views.kienthucvekimcuong, name='kienthucvekim'),
 ]

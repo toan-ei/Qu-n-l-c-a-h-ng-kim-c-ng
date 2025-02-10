@@ -31,6 +31,10 @@ def gioithieu(request):
     return render(request, 'gioithieu.html', {'products': products})
 def cauhoithuonggap(request):
     return render(request, 'cauhoithuonggap.html')
+def huongdanchonni(request):
+    return render(request, 'huongdanchonni.html')
+def kienthucvekimcuong(request):
+    return render(request, 'kienthucvekimcuong.html')
 
 @login_required
 def addToCart(request, product_id):
