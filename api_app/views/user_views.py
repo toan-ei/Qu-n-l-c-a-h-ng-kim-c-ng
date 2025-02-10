@@ -4,8 +4,11 @@ from rest_framework.views import APIView
 from django.contrib.auth import authenticate
 from app.models import User
 from api_app.serializer import UserSerializer, LoginSerializer
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from rest_framework.authtoken.models import Token
+from django.contrib.auth import get_user_model
+from django.core.exceptions import ObjectDoesNotExist
+from rest_framework import status
 
 class UserApi(APIView):
     def get(self, request):
@@ -19,23 +22,22 @@ class UserApi(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
-            password = serializer.validated_data.get('password')
-            hashPassword = make_password(password)
-            serializer.validated_data['password'] = hashPassword
             serializer.save()
+            user = User.objects.get(username=request.data['username'])
+            user.set_password(request.data['password'])
+            user.save()
+            token = Token.objects.create(user=user)
             return Response({
-                'status': True,
-                'message': 'Tạo tài khoản thành công',
-                'data': serializer.data
+                "token": token.key,
+                "user": serializer.data
             })
         return Response({
-            'status': False,
             'message': 'Tạo tài khoản thất bại',
             'data': serializer.errors
-        })
+        },status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, response, user_id):
-        user = get_object_or_404(User, id=user_id)
+    def delete(self, request, user_id):
+        user = get_object_or_404(User, user_id=user_id)
         user.delete()
         return Response({
             'status': True,
@@ -45,39 +47,25 @@ class UserApi(APIView):
 
 class loginUser(APIView):
     def post(self, request):
-        data = request.data
-        serializer = LoginSerializer(data=data)
-        if not serializer.is_valid():
+        username = request.data.get('username')
+        password = request.data.get('password')
+        if not username or not password:
             return Response({
-                'status': False,
-                'data': serializer.errors
-            })
-
-        username = serializer.validated_data['username']
-        password = serializer.validated_data['password']
-
-        # Sử dụng `authenticate` để xác thực người dùng
-        user_obj = authenticate(username=username, password=password)
-
-        if user_obj is None:
+                'message': 'Vui lòng cung cấp đầy đủ username và password'
+            }, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
             return Response({
-                'message': 'Đăng nhập thất bại: Sai thông tin đăng nhập',
-                'status': False,
-                'data': {}
-            })
-
-        # Tạo hoặc lấy token cho người dùng
-        token, created = Token.objects.get_or_create(user=user_obj)
-
+                'message': 'Tài khoản không tồn tại'
+            }, status=status.HTTP_404_NOT_FOUND)
+        if not user.check_password(request.data['password']):
+            return Response({
+                'message': 'Mật khẩu không chính xác'
+            }, status=status.HTTP_401_NOT_FOUND)
+        token, created = Token.objects.get_or_create(user=user)
+        serializer = UserSerializer(instance=user)
         return Response({
-            'status': True,
-            'message': 'Đăng nhập thành công',
-            'data': {
-                'token': token.key,
-                'user': {
-                    'id': user_obj.id,
-                    'username': user_obj.username,
-                    'email': user_obj.email
-                }
-            }
+            "token": token.key,
+            "user": serializer.data
         })

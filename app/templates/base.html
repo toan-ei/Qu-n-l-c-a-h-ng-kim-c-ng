@@ -44,11 +44,10 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="top_right text-right">
                                 <ul>
-                                    <li class="top_links">  
-                                        <a class='user_name' href="http://127.0.0.1:8000/login">đăng nhập <i class="ion-chevron-down"></i></a>
-                                        <ul class="dropdown_links">
-                                            <li><a href="#">đăng xuất</a></li>
-                                            <li><a href="#">giỏ hàng</a></li>
+                                    <li class="top_links">
+                                        <a id="userLink" class='user_name' href="http://127.0.0.1:8000/login">đăng nhập</a>
+                                        <ul id="dropdownLinks" class="dropdown_links" style="display: none;">
+                                            <li><a href="#" id="logoutLink">đăng xuất</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -70,7 +69,7 @@
                                     <img src="images/icon/icon_phone.png" alt="">
                                 </div>
                                 <div class="contact_box">
-                                    <p>Inquiry / Helpline : <a href="tel: 1234567894">1234567894</a></p>
+                                    <p>hỗ trợ : <a href="tel: 1234567894">0843514515</a></p>
                                 </div>
                             </div>
                         </div>
@@ -96,8 +95,7 @@
                                     <a href="#"><i class="ion-heart"></i></a>
                                 </div>
                                 <div class="cart_link">
-                                    <a href="#"><i class="ion-android-cart"></i><span class="cart_text_quantity">Rs.
-                                            67,598</span><i class="ion-chevron-down"></i></a>
+                                    <a href="#"><i class="ion-android-cart"></i><span class="cart_text_quantity">Cart</span><i class="ion-chevron-down"></i></a>
                                     <span class="cart_quantity">2</span>
 
                                     <!-- mini cart -->
@@ -173,53 +171,16 @@
                                     <nav>
                                         <ul>
                                             <li class="active">
-                                                <a href="#">Trang Chủ <i class="ion-chevron-down"></i></a>
-                                                <ul class="sub_menu">
-                                                    <li><a href="#">Trang Chủ Chính</a></li>
-                                                    <li><a href="#">Bộ Sưu Tập Nổi Bật</a></li>
-                                                    <li><a href="#">Ưu Đãi Đặc Biệt</a></li>
-                                                    <li><a href="#">Tin Tức</a></li>
-                                                </ul>
+                                                <a href="http://127.0.0.1:8000/">Trang Chủ</a>
                                             </li>
                                             <li>
-                                                <a href="#">Danh Mục Sản Phẩm <i class="ion-chevron-down"></i></a>
-                                                <ul class="mega_menu">
-                                                    <li>
-                                                        <a href="#">Kim Cương Cắt Mài</a>
-                                                        <ul>
-                                                            <li><a href="#">Nhẫn Kim Cương</a></li>
-                                                            <li><a href="#">Bông Tai Kim Cương</a></li>
-                                                            <li><a href="#">Dây Chuyền Kim Cương</a></li>
-                                                            <li><a href="#">Vòng Tay Kim Cương</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Kim Cương Thiên Nhiên</a>
-                                                        <ul>
-                                                            <li><a href="#">Kim Cương Thô</a></li>
-                                                            <li><a href="#">Kim Cương Màu</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Kim Loại Quý</a>
-                                                        <ul>
-                                                            <li><a href="#">Vàng</a></li>
-                                                            <li><a href="#">Bạch Kim</a></li>
-                                                            <li><a href="#">Bạc</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                                <a href="http://127.0.0.1:8000/sanpham">Danh Mục Sản Phẩm</a>
                                             </li>
                                             <li><a href="#">Giới Thiệu</a></li>
                                             <li>
-                                                <a href="#">Bộ Sưu Tập Đặc Biệt <i class="ion-chevron-down"></i></a>
-                                                <ul class="sub_menu pages">
-                                                    <li><a href="#">Kim Cương Màu</a></li>
-                                                    <li><a href="#">Vàng Hồng</a></li>
-                                                    <li><a href="#">Quà Tặng Độc Quyền</a></li>
-                                                </ul>
+                                                <a href="#">Bộ Sưu Tập Đặc Biệt</a>
                                             </li>
-                                            <li><a href="#">Liên Hệ</a></li>
+                                            <li><a href="http://127.0.0.1:8000/lichsugiaodich">lịch sử giao dịch</a></li>
                                         </ul>
                                     </nav>
                                 </div>

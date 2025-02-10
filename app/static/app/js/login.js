@@ -96,12 +96,15 @@ function loginUser(data){
     })
     .then(function(responseData){
         console.log( responseData);
-        localStorage.setItem('username', responseData.data.username);
-        window.location.href = '/sanpham';
+        localStorage.setItem('username', responseData.user.username);
+        localStorage.setItem('token', responseData.token);
+        window.location.href = '/';
     })
     .catch(function(error){
         alert('tài khoản hoặc mật khẩu sai');
         console.error('Error:', error);
+        document.querySelector('.username_dn').value = '';
+        document.querySelector('.password_dn').value = '';
     });
 }
 
