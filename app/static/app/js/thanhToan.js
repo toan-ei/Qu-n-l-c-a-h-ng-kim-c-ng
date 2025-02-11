@@ -1,43 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Lấy dữ liệu đã lưu từ localStorage
-    const storedData = localStorage.getItem('productData');
-    const inputValue = localStorage.getItem('inputValue');
-
-    if (storedData && inputValue) {
-        const product = JSON.parse(storedData);
-        renderThanhToan(product, inputValue);
-        // Nếu cần, xóa dữ liệu sau khi sử dụng
-        //localStorage.removeItem('productData');
-        //localStorage.removeItem('inputValue');
+    let product = null;
+    
+    // Ưu tiên kiểm tra xem có sản phẩm được đặt hàng hay không (orderedProduct)
+    const orderedProductData = localStorage.getItem('orderedProduct');
+    if (orderedProductData) {
+        product = JSON.parse(orderedProductData);
+        // Sau khi lấy dữ liệu, bạn có thể xóa key này nếu không cần dùng nữa
+        localStorage.removeItem('orderedProduct');
+    } else {
+        // Nếu không có orderedProduct, kiểm tra trong giỏ hàng
+        const cartData = localStorage.getItem('cart');
+        if (cartData) {
+            const cart = JSON.parse(cartData);
+            // Lọc ra các sản phẩm được đánh dấu (checked === true)
+            const checkoutProducts = cart.filter(item => item.checked);
+            if (checkoutProducts.length > 0) {
+                // Chọn sản phẩm đầu tiên để hiển thị thông tin (theo giao diện cũ chỉ hiển thị 1 sản phẩm)
+                product = checkoutProducts[0];
+            }
+        }
+    }
+    
+    // Nếu có sản phẩm, render giao diện thanh toán, nếu không thì thông báo
+    if (product) {
+        renderCheckout(product);
+    } else {
+        alert("Giỏ hàng rỗng, vui lòng kiểm tra lại giỏ hàng.");
+        // Nếu cần có thể chuyển hướng về trang sản phẩm:
+        // window.location.href = '/sanpham';
     }
 });
 
-function renderThanhToan(product, inputValue) {
-    const thanhToanName = document.getElementById('thanhToanName');
-    const thanhToanPrice = document.getElementById('thanhToanPrice');
-    const thanhToanSoLuong = document.getElementById('thanhToanSoLuong');
-    const productImage = document.getElementById('thanhToanImage');
-    const totalPriceElement = document.getElementById('total-price');
+/**
+ * Hàm renderCheckout nhận vào 1 đối tượng sản phẩm và cập nhật giao diện thanh toán
+ * với các phần tử cũ: thanhToanImage, thanhToanName, thanhToanPrice, thanhToanSoLuong và total-price.
+ */
+function renderCheckout(product) {
+    const imageEl = document.getElementById('thanhToanImage');
+    const nameEl = document.getElementById('thanhToanName');
+    const priceEl = document.getElementById('thanhToanPrice');
+    const quantityEl = document.getElementById('thanhToanSoLuong');
+    const totalPriceEl = document.getElementById('total-price');
 
-    if (thanhToanName && thanhToanPrice && thanhToanSoLuong && productImage) {
-        thanhToanName.textContent = product.data.product_name;
-        thanhToanPrice.textContent = `${parseFloat(product.data.product_price).toLocaleString()} VND`;
-        thanhToanSoLuong.value = inputValue;
-        productImage.src = product.data.product_image_first;
-        productImage.alt = product.data.product_name;
-
-        const totalPrice = parseFloat(product.data.product_price) * inputValue;
-        totalPriceElement.textContent = `${totalPrice.toLocaleString()} VND`;
-
-        thanhToanSoLuong.addEventListener('input', (e) => {
-            const newQuantity = e.target.value;
-            if (newQuantity && newQuantity > 0) {
-                localStorage.setItem('inputValue', newQuantity);
-                const newTotalPrice = parseFloat(product.data.product_price) * newQuantity;
-                totalPriceElement.textContent = `${newTotalPrice.toLocaleString()} VND`;
-            }
-        });
-    } else {
-        console.error('Không tìm thấy phần tử thanh toán.');
+    if (!imageEl || !nameEl || !priceEl || !quantityEl || !totalPriceEl) {
+        console.error("Không tìm thấy các phần tử hiển thị thông tin thanh toán.");
+        return;
     }
+    
+    // Cập nhật thông tin sản phẩm (chỉ hiển thị 1 sản phẩm theo giao diện cũ)
+    imageEl.src = product.image;
+    imageEl.alt = product.name;
+    nameEl.textContent = product.name;
+    priceEl.textContent = parseFloat(product.price).toLocaleString() + " VND";
+    quantityEl.value = product.quantity;
+    
+    // Tính tổng tiền dựa trên sản phẩm được chọn
+    const total = parseFloat(product.price) * product.quantity;
+    totalPriceEl.textContent = total.toLocaleString() + " VND";
 }
