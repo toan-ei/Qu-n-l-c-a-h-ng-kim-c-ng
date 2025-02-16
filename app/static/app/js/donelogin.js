@@ -1,4 +1,5 @@
 function updateUserUI(username) {
+    console.log(localStorage.getItem('token'))
     const userLink = document.getElementById('userLink');
     const dropdownLinks = document.getElementById('dropdownLinks');
 

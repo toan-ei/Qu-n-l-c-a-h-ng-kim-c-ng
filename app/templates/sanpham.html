@@ -87,11 +87,8 @@
                           </div>
                           <div class="modal_add_to_cart mb-15">
                               <form action="#">
-                                  <!-- Số lượng sản phẩm -->
                                   <input type="number" id="myInput" min="1" max="100" step="1">
-                                  <!-- Nút Đặt Hàng: sẽ chuyển hướng tới trang thanh toán -->
                                   <button type="submit" id="order_button">Đặt Hàng</button>
-                                  <!-- Nút Thêm vào giỏ hàng: chỉ cập nhật mini cart -->
                                   <button type="submit" id="cart_button">Thêm vào giỏ hàng</button>
                               </form>
                           </div>
@@ -109,5 +106,6 @@
 </div>
 </section> 
 <script src="{%static 'app/js/product.js'%}"></script>
+<script src="{%static 'app/js/cart.js'%}"></script>
 <script src="{%static 'app/js/sanpham.js'%}"></script>
 {% endblock %}

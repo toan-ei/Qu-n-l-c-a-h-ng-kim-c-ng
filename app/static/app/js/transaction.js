@@ -5,7 +5,7 @@ orderBtn.onclick = function(event){
     event.preventDefault();
     let nameProduct = document.getElementById('thanhToanName').textContent.trim();
     let quantityProduct = parseInt(document.getElementById('thanhToanSoLuong').value);
-    let totalProduct = parseFloat(document.getElementById('total-price').textContent.replace(/[^\d.-]/g, ''));
+    let totalProduct = parseFloat(document.getElementById('total-price').textContent.replace(/[^\d]/g, ''));
     const orderData = {
         product_name: nameProduct,
         quantity: quantityProduct,

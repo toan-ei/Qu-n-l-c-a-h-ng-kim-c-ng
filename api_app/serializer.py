@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.models import User, Product, OrderItem, Cart, CartItem
+from app.models import User, Product, OrderItem, CartItem
 from django.contrib.auth.hashers import make_password
 
 class UserSerializer(serializers.ModelSerializer):
@@ -17,19 +17,11 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CartItemSerializer(serializers.ModelSerializer):
-    product = ProductSerializer()
 
     class Meta:
         model = CartItem
         fields = '__all__'
-
-class CartSerializer(serializers.ModelSerializer):
-    items = CartItemSerializer(source='items.all', read_only=True)
-
-    class Meta:
-        model = Cart
-        fields = '__all__'
-
+        read_only_fields = ['user']
 
 class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:

@@ -17,11 +17,14 @@ class ListCreateProductView(ListCreateAPIView):
 
     def create(self, request, *args, **kwargs):
         serializer = ProductSerializer(data=request.data)
-        print(request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Tạo thành công một sản phẩm'}, status=status.HTTP_201_CREATED)
-        return Response({'message': 'Có lỗi khi tạo sản phẩm mới'}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            # Hiển thị lỗi chi tiết
+            print(serializer.errors)
+            return Response({'message': 'Lỗi khi tạo sản phẩm', 'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class UpdateDeleteProductView(RetrieveUpdateDestroyAPIView):

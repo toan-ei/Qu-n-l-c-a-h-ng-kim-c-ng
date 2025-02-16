@@ -92,33 +92,37 @@
                                     </div>
                                 </div>
                                
-                                <div class="cart_link">
-                                    <a href="#"><i class="ion-android-cart"></i><span class="cart_text_quantity"></span><i class="ion-chevron-down"></i></a>
+                                <div id="cartLink"  class="cart_link">
+                                    <a href="#" id="cartIcon"><i class="ion-android-cart"></i><span class="cart_text_quantity"></span><i class="ion-chevron-down"></i></a>
                                     <span class="cart_quantity"></span>
-<!-- mini cart -->
-<div class="mini_cart">
-    <div class="cart_close">
-        <div class="cart_text">
-            <h3>Giỏ hàng</h3>
-        </div>
-        <div class="mini_cart_close">
-            <a href="javascript:void(0)"><i class="ion-android-close"></i></a>
-        </div>
-    </div>
-    <div id="miniCartItems">
-        <!-- Sản phẩm sẽ được thêm vào đây -->
-    </div>
-    <div class="cart_total">
-        <span>Tổng cộng: </span>
-        <span id="miniCartTotal">0 VND</span>
-    </div>
-    <div class="mini_cart_footer">
-        <div class="cart_button checkout">
-            <a href="{% url 'thanhtoan' %}" class="active">Thanh toán</a>
-        </div>
-    </div>
-</div>
-<!-- mini cart ends  -->
+                                    <!-- mini cart -->
+                                    <div class="mini_cart">
+                                        <div class="cart_close">
+                                            <div class="cart_text">
+                                                <h3>Giỏ hàng</h3>
+                                            </div>
+                                            <div class="mini_cart_close">
+                                                <a href="javascript:void(0)"><i class="ion-android-close"></i></a>
+                                            </div>
+                                        </div>
+                                        <div id="miniCartItems">
+                                            <!-- Sản phẩm sẽ được thêm vào đây -->
+                                        </div>
+                                        <div class="cart_total">
+                                            <span>Tổng cộng chọn: </span>
+                                            <span id="cartCLick">0 VND</span>
+                                        </div>
+                                        <div class="cart_total">
+                                            <span>Tổng cộng tất cả: </span>
+                                            <span id="miniCartTotal">0 VND</span>
+                                        </div>
+                                        <div class="mini_cart_footer">
+                                            <div id="cart_thanh_toan" class="cart_button checkout">
+                                                <a href="#" class="active">Thanh toán</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- mini cart ends  -->
                                 </div>
                             </div>
                         </div>
@@ -408,6 +412,7 @@
 
     <script src="{%static 'app/js/main.js'%}"></script>
     <script src="{%static 'app/js/donelogin.js'%}"></script>
+    <script src="{% static 'app/js/cart.js' %}"></script>
 </body>
 
 </html>
