@@ -22,12 +22,18 @@
           </p>
       </section>
       
-      <!-- Phần sản phẩm: sẽ được render bởi JavaScript -->
+      <!-- Phần sản phẩm: hiển thị hình ảnh đại diện -->
       <section class="products" id="products">
           <h2>Sản Phẩm Của Chúng Tôi</h2>
-          <!-- Khối chứa danh sách sản phẩm -->
-          <div id="gioithieuProductList" class="product-list">
-              <!-- Sản phẩm sẽ được chèn vào đây qua gioithieu.js -->
+          <div class="product-gallery">
+              <img src="{% static 'app/image/6.jpg' %}" alt="Kim cương 1">
+              <img src="{% static 'app/image/6.jpg' %}" alt="Kim cương 2">
+              <img src="{% static 'app/image/6.jpg' %}" alt="Kim cương 3">
+              <img src="{% static 'app/image/6.jpg' %}" alt="Kim cương 4">
+              <img src="{% static 'app/image/6.jpg' %}" alt="Kim cương 5">
+              <img src="{% static 'app/image/6.jpg' %}" alt="Kim cương 6">
+              <img src="{% static 'app/image/6.jpg' %}" alt="Kim cương 7">
+              <img src="{% static 'app/image/6.jpg' %}" alt="Kim cương 8">
           </div>
       </section>
       
@@ -38,15 +44,12 @@
               Chúng tôi luôn sẵn sàng giúp bạn tìm được viên kim cương hoàn hảo nhất.
           </p>
           <form>
-              <input name="name" placeholder="Tên của bạn" required="" type="text"/>
-              <input name="email" placeholder="Email của bạn" required="" type="email"/>
-              <textarea name="message" placeholder="Tin nhắn của bạn" required="" rows="5"></textarea>
+              <input name="name" placeholder="Tên của bạn" required type="text"/>
+              <input name="email" placeholder="Email của bạn" required type="email"/>
+              <textarea name="message" placeholder="Tin nhắn của bạn" required rows="5"></textarea>
               <button type="submit">Gửi tin nhắn</button>
           </form>
       </section>
   </div>
 </div>
-
-<!-- Bao gồm file JS để hiển thị sản phẩm và cập nhật giỏ hàng -->
-<script src="{% static 'app/js/gioithieu.js' %}"></script>
 {% endblock %}

@@ -2805,7 +2805,7 @@ p {
   background: rgba(0,0,0,0.4); /* overlay để tăng độ tương phản chữ */
 }
 
-/* Hero Text */
+/* gioithieu */
 .about .hero h2 {
   font-size: 3rem;
   z-index: 1;
@@ -2846,7 +2846,7 @@ p {
   margin-bottom: 3rem; /* Tăng khoảng cách giữa hai phần */
 }
 
-/* Product List */
+/* Product List (ví dụ cũ, nếu dùng kiểu flex cho sản phẩm khác) */
 .about .product-list {
   display: flex;
   flex-wrap: wrap;
@@ -2918,6 +2918,23 @@ p {
   transform: scale(1);
 }
 
+/* Product Gallery - Hiển thị 4 sản phẩm trên 1 hàng */
+.about .product-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.about .product-gallery img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.about .product-gallery img:hover {
+  transform: scale(1.05);
+}
+
 /* Contact Form */
 .about .contact form {
   display: flex;
@@ -2961,8 +2978,14 @@ p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Nếu bạn vẫn dùng product-item theo flex thì giữ nguyên */
   .about .product-item {
     flex: 1 1 calc(50% - 1rem);
+  }
+  
+  /* Điều chỉnh grid cho product-gallery */
+  .about .product-gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
