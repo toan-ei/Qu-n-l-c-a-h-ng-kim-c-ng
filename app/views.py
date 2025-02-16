@@ -12,20 +12,12 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
-def boSuuTap(request):
-    return render(request, 'BoSuuTap.html')
-def bangGiaKimCuong(request):
-    return render(request, 'banggiakimcuong.html')
 def sanpham(request):
     return render(request, 'sanpham.html')
 def loginPage(request):
     return render(request, 'login.html')
-def phieutichdiem(request):
-    return render(request, 'phieutichdiem.html')
 def lichsugiaodich(request):
     return render(request, 'lichsugiaodich.html')
-def kienthuc(request):
-    return render(request, 'kienthuc.html')
 def gioithieu(request):
     products = Product.objects.all()  # Lấy tất cả sản phẩm
     return render(request, 'gioithieu.html', {'products': products})

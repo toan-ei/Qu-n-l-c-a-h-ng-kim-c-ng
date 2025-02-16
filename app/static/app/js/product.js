@@ -83,7 +83,15 @@ function setupQuickView() {
                 .catch(error => console.error('Lỗi khi tải thông tin sản phẩm:', error));
         });
     });
-}
+        // Ngăn chặn hành vi mặc định khi click vào hình ảnh
+        const imageLinks = document.querySelectorAll('.primary_img, .secondary_img');
+        imageLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+            });
+        });
+    }
+    
 
 document.addEventListener('DOMContentLoaded', () => {
     start();

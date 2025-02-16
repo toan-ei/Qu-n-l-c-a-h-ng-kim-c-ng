@@ -151,11 +151,18 @@
                                             <li>
                                                 <a href="{% url 'sanpham'%}">Sản Phẩm</a>
                                             </li>
-                                            <li><a href="{% url 'gioithieu'%}">Giới Thiệu</a></li>                                    
-                                            <li><a href="{% url 'cauhoithuonggap'%}">Câu hỏi thường gặp</a></li>
+                                            <li>
+                                                <a href="{% url 'gioithieu'%}">Giới Thiệu<i class="ion-chevron-down"></i></a>
+                                                <ul class="sub_menu">
+                                                    <li><a href="{% url 'kienthucvetrangsuc'%}">Kiến Thức Trang Sức</a></li>
+                                                    <li><a href="{% url 'kienthucvekimcuong'%}">Kiến Thức Kim Cương</a></li>
+                                                    <li><a href="{% url 'huongdanchonni'%}">Hướng Dẫn Chọn Ni</a></li>
+                                                    <li><a href="{% url 'cauhoithuonggap'%}">Câu Hỏi Thường Gặp (FAQ)</a></li>
+                                                </ul>
+                                            </li>                                    
                                             <li><a href="{% url 'lichsugiaodich'%}">Lịch sử giao dịch</a></li>
-                                            <li><a href="{% url 'huongdanchonni'%}">Hướng Dẫn chọn ni</a></li>
                                         </ul>
+
                                     </nav>
                                 </div>
                             </div>
@@ -168,14 +175,10 @@
   <!-- Main Content -->
   
   {% block home %}{% endblock %}
-  {% block pageBangGiaKimCuong %}{% endblock %}
-  {% block Bosuutap %}{% endblock %}
   {% block pageLogin %}{% endblock %}
   {% block register %}{% endblock %}
   {% block sanpham %}{% endblock %}
-  {% block Phieutichdiem %}{% endblock %}
   {% block lichsugiaodich %}{% endblock %}
-  {% block kienthuc %}{% endblock %}
   {% block thanhtoan %}{% endblock %}
   {% block gioithieu %}{% endblock %}
   {% block cauhoithuonggap%}{% endblock %}
