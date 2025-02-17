@@ -1,7 +1,6 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Hướng dẫn chọn nhẫn{% endblock %}
-
 {% block huongdanchonni %}
 <div class="huongdanchonni">
     <div class="container">
@@ -11,7 +10,7 @@
                 <p>Những yếu tố quan trọng cần cân nhắc khi lựa chọn một chiếc nhẫn hoàn hảo.</p>
             </div>
             <div class="card">
-                <img alt="Người thử nhẫn" src="https://placehold.co/800x500"/>
+                <img alt="Người thử nhẫn" src="{% static 'app/image/acd.jpg' %}"/>
                 <div class="card-content">
                     <h3>Cách chọn nhẫn phù hợp</h3>
                     <ul class="checklist">
@@ -31,21 +30,21 @@
             </div>
             <div class="grid">
                 <div class="card">
-                    <img alt="Nhẫn Solitaire" src="https://placehold.co/800x500"/>
+                    <img alt="Nhẫn Solitaire" src="{% static 'app/image/oof.jpg' %}"/>
                     <div class="card-content">
                         <h3>Nhẫn Solitaire</h3>
                         <p>Thiết kế đơn giản, tinh tế với một viên đá quý trung tâm.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img alt="Nhẫn Halo" src="https://placehold.co/800x500"/>
+                    <img alt="Nhẫn Halo" src="{% static 'app/image/oog.jpg' %}"/>
                     <div class="card-content">
                         <h3>Nhẫn Halo</h3>
                         <p>Viên đá chính được bao quanh bởi nhiều viên đá nhỏ lấp lánh.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img alt="Nhẫn Vintage" src="https://placehold.co/800x500"/>
+                    <img alt="Nhẫn Vintage" src="{% static 'app/image/ook.jpg' %}"/>
                     <div class="card-content">
                         <h3>Nhẫn Vintage</h3>
                         <p>Phong cách cổ điển với chi tiết tinh xảo, sang trọng.</p>
@@ -59,7 +58,7 @@
                 <h2>Hướng dẫn bảo quản nhẫn</h2>
             </div>
             <div class="card">
-                <img alt="Chăm sóc nhẫn" src="https://placehold.co/800x500"/>
+                <img alt="Chăm sóc nhẫn" src="{% static 'app/image/ooz.jpg' %}"/>
                 <div class="card-content">
                     <h3>Cách bảo quản nhẫn đúng cách</h3>
                     <p>Để nhẫn luôn sáng đẹp, hãy:</p>
