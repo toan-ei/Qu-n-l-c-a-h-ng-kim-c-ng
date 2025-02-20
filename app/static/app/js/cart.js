@@ -3,16 +3,16 @@ const cartApi = 'http://127.0.0.1:8000/api/carts/cart';
 document.addEventListener('DOMContentLoaded', () => {
     const addTocart = document.getElementById('cart_button');
     addTocart.addEventListener('click', (e) => {
-
         const productId = addTocart.getAttribute('data-id');
         const inputElement = document.getElementById('myInput');
-        const inputValue = inputElement ? inputElement.value : 0;
-        
-        if (!inputValue || inputValue <= 0) {
+        let inputValue = inputElement ? inputElement.value : 0;
+        let quantity = parseInt(inputValue);
+
+        if (isNaN(quantity) || quantity <= 0) {
             alert('Vui lòng nhập số lượng hợp lệ!');
             return;
         }
-    
+
         fetch(`http://127.0.0.1:8000/api/products/product/${productId}`, {
             method: 'GET',
             headers: {
@@ -21,16 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
-            console.log('soluong', inputValue);
-            let totalPrice = data.data.product_price * inputValue;
+            let totalPrice = data.data.product_price * quantity;
             let productData = {
                 'product_name': data.data.product_name,
                 'product_image': data.data.product_image_first,
                 'product_total_price': totalPrice,
-                'quantity': inputValue,
-            }
-            console.log('productData',productData)
+                'quantity': quantity,
+            };
             fetch(cartApi, {
                 method: 'POST',
                 headers: {
@@ -39,24 +36,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify(productData),
             })
-            .then((response) => response.json())
-            .then((response) => {
+            .then(response => response.json())
+            .then(response => {
                 if (response.status) {
-                    alert('thêm vào giỏ hàng thành công');
+                    alert('Thêm vào giỏ hàng thành công!');
                     console.log('Order Response:', response.data);
                 } else {
-                    alert('thêm vào giỏ hàng thất bại');
+                    alert('Thêm vào giỏ hàng thất bại!');
                     console.error('Error:', response.errors);
                 }
             })
-            .catch((erorr) => {
-                console.error('Errors:', erorr);
-                alert('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.');
-            })
+            .catch(error => {
+                console.error('Lỗi khi thêm vào giỏ hàng:', error);
+                alert('Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng.');
+            });
         })
-        .catch((error) => {
-            console.error('Error:', error);
+        .catch(error => {
+            console.error('Lỗi khi lấy dữ liệu sản phẩm:', error);
         });
+
     });
 });
 
@@ -164,6 +162,7 @@ document.addEventListener('click', async (e) => {
 
                 if (result.status) {
                     alert(result.message);
+                    location.reload();
                     console.log(result)
                 } else {
                     alert(result.message);

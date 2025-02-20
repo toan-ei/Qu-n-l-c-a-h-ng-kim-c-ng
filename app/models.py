@@ -26,7 +26,7 @@ class CartItem(models.Model):
     cart_item_id = models.AutoField(primary_key=True)
     product_name = models.CharField(max_length=100)
     product_image = models.TextField(blank=True)
-    product_total_price = models.DecimalField(max_digits=10, decimal_places=2)
+    product_total_price = models.DecimalField(max_digits=20, decimal_places=2)
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):

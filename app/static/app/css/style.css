@@ -368,6 +368,9 @@ ul {
 .logo {
   padding: 0 20px;
 }
+.logo img{
+  border-radius: 100px;
+}
 
 .middel_right {
   display: flex;
@@ -805,6 +808,7 @@ ul {
 
 .logo_sticky a img {
   max-width: 120px;
+  border-radius: 100px;
 }
 
 .main_menu nav > ul > li {
